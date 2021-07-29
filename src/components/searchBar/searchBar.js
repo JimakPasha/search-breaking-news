@@ -3,9 +3,12 @@ import './searchBar.scss';
 
 function SearchBar() {
 	return (
-		<>
-			<h1>SearchPanel</h1>
-		</>
+		<div className="search-panel">
+			<input className="search-panel__input" type="text" />
+			<button className="search-panel__btn" type="submit">
+				Search
+			</button>
+		</div>
 	);
 }
 

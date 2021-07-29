@@ -1,0 +1,40 @@
+.card-item {
+	border-radius: 5px;
+	width: 20%;
+	border: 2px solid #fff;
+	background: linear-gradient(270deg, rgba(63,71,121,1) 0%, rgba(38,41,46,1) 100%);
+	box-shadow: 6px 4px 7px -1px rgba(34, 60, 80, 0.37);
+	color: #fff;
+	&__img {
+		width: 100%;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	&__content {
+		padding: 15px 30px;
+		font-size: 16px;
+		line-height: 18px;
+	}
+	&__title {
+		font-size: 20px;
+		line-height: 26px;
+		margin: 0;
+		margin-bottom: 30px;
+	}
+	&__wrapp {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__price {
+		font-size: 25px;
+		line-height: 32px;
+	}
+	&__sold {
+		font-size: 12px;
+	}
+	&__store {
+		display: block;
+		text-align: center;
+		margin: 20px 0;
+	}
+} 

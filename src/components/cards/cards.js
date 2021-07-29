@@ -4,11 +4,12 @@ import './cards.scss';
 
 function Cards() {
 	return (
-		<>
+		<div className="cards">
 			<CardItem />
 			<CardItem />
 			<CardItem />
-		</>
+			<CardItem />
+		</div>
 	);
 }
 
