@@ -1,6 +1,5 @@
 .card-item {
 	border-radius: 5px;
-	width: 20%;
 	border: 2px solid #fff;
 	background: linear-gradient(270deg, rgba(63,71,121,1) 0%, rgba(38,41,46,1) 100%);
 	box-shadow: 6px 4px 7px -1px rgba(34, 60, 80, 0.37);
@@ -14,6 +13,7 @@
 		padding: 15px 30px;
 		font-size: 16px;
 		line-height: 18px;
+		position: relative;
 	}
 	&__title {
 		font-size: 20px;
@@ -36,5 +36,19 @@
 		display: block;
 		text-align: center;
 		margin: 20px 0;
+	}
+	&__sail {
+		position: absolute;
+		top: 5px;
+		right: 10px;
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		background-color: red;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-transform: uppercase;
+
 	}
 } 

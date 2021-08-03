@@ -9,9 +9,7 @@
 				"plugin:import/errors",
 				"plugin:import/warnings",
         "airbnb",
-				"plugin:prettier/recommended",
-				"prettier"
-				// "prettier/react"
+				"plugin:prettier/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -30,6 +28,7 @@
 			"indent": [1, "tab"],
 			"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 			"react/jsx-indent": [2, "tab"],
-			"prettier/prettier": ["error", {"endOfLine": "auto", "useTabs": true}]
+			"prettier/prettier": ["error", {"endOfLine": "auto", "useTabs": true}],
+			"react/prop-types": "off"
     }
 }
