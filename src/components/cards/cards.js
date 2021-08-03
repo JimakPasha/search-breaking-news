@@ -4,8 +4,18 @@ import './cards.scss';
 
 function Cards({ posts }) {
 	const elements = posts.map((item) => {
-		const { name, img, price, rating, sold, store, freeShipping, sail, id } =
-			item;
+		const {
+			name,
+			img,
+			price,
+			rating,
+			sold,
+			store,
+			storeSite,
+			freeShipping,
+			sail,
+			id,
+		} = item;
 		return (
 			<CardItem
 				key={id}
@@ -15,6 +25,7 @@ function Cards({ posts }) {
 				rating={rating}
 				sold={sold}
 				store={store}
+				storeSite={storeSite}
 				freeShipping={freeShipping}
 				sail={sail}
 			/>

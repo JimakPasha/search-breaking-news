@@ -17,6 +17,7 @@ export default class App extends Component {
 					rating: '4.8',
 					sold: '126',
 					store: 'AIOPESON Store',
+					storeSite: 'google.com/AIOPESON-Store',
 					freeShipping: true,
 					sail: true,
 					id: 2143235245,
@@ -28,6 +29,7 @@ export default class App extends Component {
 					rating: '4.2',
 					sold: '185',
 					store: 'Lipswag Store',
+					storeSite: 'google.com/Lipswag-Store',
 					freeShipping: true,
 					sail: false,
 					id: 3452143453465,
@@ -39,6 +41,7 @@ export default class App extends Component {
 					rating: '3.8',
 					sold: '89',
 					store: 'Soochic Store',
+					storeSite: 'google.com/Soochic-Store',
 					freeShipping: false,
 					sail: true,
 					id: 5724593458111988,
@@ -49,7 +52,8 @@ export default class App extends Component {
 					price: '399',
 					rating: '4.9',
 					sold: '212',
-					store: 'VARSANOL Store',
+					store: 'Street Knights',
+					storeSite: 'google.com/Street-Knights',
 					freeShipping: true,
 					sail: false,
 					id: 342345453242988,
@@ -63,8 +67,10 @@ export default class App extends Component {
 
 		return (
 			<div className="app">
-				<SearchBar />
-				<Cards posts={data} />
+				<div className="container">
+					<SearchBar />
+					<Cards posts={data} />
+				</div>
 			</div>
 		);
 	}
