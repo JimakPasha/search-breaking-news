@@ -23,7 +23,7 @@ function CardItem({
 		<div className="card-item">
 			<img
 				className="card-item__img"
-				src={`src/assets/images/${img}.jpg`}
+				src={`./assets/images/${img}.jpg`}
 				alt={name}
 			/>
 			<div className="card-item__content">

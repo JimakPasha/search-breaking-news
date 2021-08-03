@@ -33,21 +33,21 @@ module.exports = {
 	entry: './index.js',
 	output: {
 		filename: filename('js'),
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
 	},
 	optimization: optimization(),
 	devServer: {
 		port: 8080,
 		hot: isDev,
 	},
-	devtool: 'source-map',
+	devtool: isDev ? 'inline-source-map' : 'source-map',
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				use: {
-					loader: 'babel-loader'
+					loader: 'babel-loader',
 				}
 			},
 			{
@@ -76,9 +76,13 @@ module.exports = {
 			}
 		}),
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-		// new CopyWebpackPlugin({
-		// 	patterns: [
-		// 		{ from: './public' },
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: path.resolve(__dirname, 'src/assets'),
+					to: path.resolve(__dirname, 'dist/assets')}
+			],
+		}),
 		new MiniCssExtractPlugin({
 			filename: filename('css')
 		}),

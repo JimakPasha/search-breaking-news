@@ -7,10 +7,10 @@
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "lint": "eslint src --fix"
   },
-	"prettier": {
-		"singleQuote": true,
-		"useTabs": true
-	},
+  "prettier": {
+    "singleQuote": true,
+    "useTabs": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JimakPasha/rs-school-react-tasks.git"
