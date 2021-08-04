@@ -2,6 +2,10 @@
 	font-family: DejaVu Sans Mono, monospace;
 }
 
+body {
+	background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(181,181,181,1) 100%);
+}
+
 .container {
 	max-width: 1200px;
 	margin: 0 auto;

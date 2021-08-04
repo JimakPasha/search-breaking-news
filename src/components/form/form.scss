@@ -1,0 +1,58 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	height: 100%;
+	margin: 20px 50px 0 0;
+	padding: 30px;
+	border-radius: 10px;
+	background: linear-gradient(270deg, rgba(63,71,121,1) 0%, rgba(38,41,46,1) 100%);
+	box-shadow: 6px 4px 7px -1px rgba(34, 60, 80, 0.37);
+	color: #fff;
+	&__input,
+	&__select {
+		width: 100%;
+		height: 30px;
+		margin-bottom: 20px;
+		padding: 0 20px 0 30px;
+		border: none;
+		border: 2px solid #e1e4e9;
+		border-radius: 10px;
+		outline: none;
+		&:focus {
+			box-shadow: 0px 0px 3px 0px #fff;
+		}
+	}
+	&__input-button {
+		height: 50px;
+		margin-top: 40px;
+		cursor: pointer;
+		border: none;
+		border: 2px solid #e1e4e9;
+		background: #41424b;
+		box-shadow: 3px 3px 6px -2px #fff;
+		font-size: 16px;
+		text-transform: uppercase;
+		color: #fff;
+		cursor: pointer;
+		outline: none;
+		transition: all .3s;
+		&:active {
+			box-shadow: 0px 0px 6px -2px #fff;
+			transform: scale(0.97);
+		}
+	}
+	&__label-check {
+		font-size: 14px;
+		display: flex;
+		margin-bottom: 20px;
+	}
+	&__check-text {
+		width: 100%;
+	}
+	&__input-check {
+		width: 18px;
+		height: 18px;
+		margin: 0;
+	}
+}

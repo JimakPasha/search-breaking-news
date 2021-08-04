@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Form from '../form/form';
+import Card from '../card/card';
 import './app.scss';
 import './reset.scss';
 import './global.scss';
 
-function App() {
+const App = () => {
+	const [formValues, setFormValues] = useState([]);
 	return (
-		<div className="app">
-			<div className="container">
-				<Form />
+		<div className="container">
+			<div className="form-wrapper">
+				<Form setFormValues={setFormValues}/>
+				<div>
+					{formValues.map((item, i) => {
+						return <Card item={item} key={i}/>
+					})}
+				</div>
 			</div>
 		</div>
-	);
+	)
 }
 
 export default App;
