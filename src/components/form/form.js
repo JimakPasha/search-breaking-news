@@ -10,10 +10,12 @@ const Form = ({ setFormValues }) => {
 	const [checkAgree, setCheckAgree] = useState(false);
 	const [checkNotice, setCheckNotice] = useState(false);
 	const [errors, setErrors] = useState({});
+	const [submit, setSubmit] = useState(false);
 
-	useEffect(()=> {
-		validate()
-	}, [firstName, lastName, deliveryDate, country, checkAgree])
+	useEffect(() => {
+		validate();
+		// submitMessage();
+	}, [firstName, lastName, deliveryDate, country, checkAgree, submit])
 
 	const validate = () => {
 		setErrors({});
@@ -32,16 +34,17 @@ const Form = ({ setFormValues }) => {
 		if (!checkAgree) {
 			setErrors((state) => ({ ...state, checkAgree }))
 		}
+		if (!submit) {
+
+		}
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (Object.keys(errors).length === 0) {
 			setFormValues((state) => [...state, { firstName, lastName, deliveryDate, country, checkAgree, checkNotice }]);
+			// setSubmit(true);
 			reset();
-			alert('Data saved successfully!')
-		} else {
-			alert('Fill in all the required fields please!')
 		}
 	}
 
@@ -53,6 +56,22 @@ const Form = ({ setFormValues }) => {
 		setCheckAgree(false);
 		setCheckNotice(false);
 		setErrors('');
+	}
+
+	const getTodayDate = () => {
+		const today = new Date();
+		const dd = String(today.getDate()).padStart(2, '0');
+		const mm = String(today.getMonth() + 1).padStart(2, '0'); 
+		const yyyy = today.getFullYear();
+		return yyyy + '-' + mm + '-' + dd;
+	}
+
+	const getMaxDate = () => {
+		const today = new Date();
+		const dd = String(today.getDate()).padStart(2, '0');
+		const mm = String(today.getMonth() + 2).padStart(2, '0');
+		const yyyy = today.getFullYear();
+		return yyyy + '-' + mm + '-' + dd;
 	}
 
 	return (
@@ -88,6 +107,8 @@ const Form = ({ setFormValues }) => {
 				<input
 					className="form__input"
 					type="date"
+					min={getTodayDate()}
+					max={getMaxDate()}
 					name="deliveryDate"
 					value={deliveryDate}
 					onChange={(e) => setDeliveryDate(e.target.value)}
