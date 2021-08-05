@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import SuccessMessage from '../successMessage/successMessage';
 import './form.scss';
 
 const Form = ({ setFormValues }) => {
@@ -10,12 +9,10 @@ const Form = ({ setFormValues }) => {
 	const [checkAgree, setCheckAgree] = useState(false);
 	const [checkNotice, setCheckNotice] = useState(false);
 	const [errors, setErrors] = useState({});
-	const [submit, setSubmit] = useState(false);
 
 	useEffect(() => {
 		validate();
-		// submitMessage();
-	}, [firstName, lastName, deliveryDate, country, checkAgree, submit])
+	}, [firstName, lastName, deliveryDate, country, checkAgree])
 
 	const validate = () => {
 		setErrors({});
@@ -34,16 +31,12 @@ const Form = ({ setFormValues }) => {
 		if (!checkAgree) {
 			setErrors((state) => ({ ...state, checkAgree }))
 		}
-		if (!submit) {
-
-		}
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (Object.keys(errors).length === 0) {
 			setFormValues((state) => [...state, { firstName, lastName, deliveryDate, country, checkAgree, checkNotice }]);
-			// setSubmit(true);
 			reset();
 		}
 	}
