@@ -59,7 +59,7 @@ const Form = ({ setFormValues }) => {
 	const getTodayDate = () => {
 		const today = new Date();
 		const dd = String(today.getDate()).padStart(2, '0');
-		const mm = String(today.getMonth() + 1).padStart(2, '0'); 
+		const mm = String(today.getMonth() + 1).padStart(2, '0');
 		const yyyy = today.getFullYear();
 		return yyyy + '-' + mm + '-' + dd;
 	}
@@ -157,28 +157,34 @@ const Form = ({ setFormValues }) => {
 			</label>
 			<div className="switcher">
 				<p className="switcher__text">Receive notifications about promotions?</p>
-				<label className="" htmlFor="radioNoticeReceive">
-					<p className="">Receive</p>
-					<input
-						className=""
-						type="radio"
-						name="radioNoticeReceive"
-						checked={radioNotice === "Receive"}
-						value="Receive"
-						onChange={(e) => {setRadioNotice(e.target.value)}}
-					/>
-				</label>
-				<label className="" htmlFor="radioNoticeNoReceive">
-					<p className="">No receive</p>
-					<input
-						className=""
-						type="radio"
-						name="radioNoticeNoReceive"
-						checked={radioNotice === "NoReceive"}
-						value="NoReceive"
-						onChange={(e) => {setRadioNotice(e.target.value)}}
-					/>
-				</label>
+				<div className="switcher__box">
+					<label className="switcher__label" htmlFor="radioNoticeReceive">
+						<span className="switcher__label-text switcher__label-text--yes">Yes</span>
+						<input
+							className="switcher__input switcher__input--receive"
+							id="radioNoticeReceive"
+							type="radio"
+							name="radioNoticeReceive"
+							checked={radioNotice === "Receive"}
+							value="Receive"
+							onChange={(e) => { setRadioNotice(e.target.value) }}
+						/>
+						<span className="switcher__btn"></span>
+					</label>
+					<label className="switcher__label" htmlFor="radioNoticeNoReceive">
+						<span className="switcher__label-text switcher__label-text--no">No</span>
+						<input
+							className="switcher__input switcher__input--noreceive"
+							id="radioNoticeNoReceive"
+							type="radio"
+							name="radioNoticeNoReceive"
+							checked={radioNotice === "NoReceive"}
+							value="NoReceive"
+							onChange={(e) => { setRadioNotice(e.target.value) }}
+						/>
+						<span className="switcher__btn"></span>
+					</label>
+				</div>
 			</div>
 			<div>
 				<input
