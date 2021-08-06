@@ -8,7 +8,7 @@ const Form = ({ setFormValues }) => {
 	const [deliveryDate, setDeliveryDate] = useState('');
 	const [country, setCountry] = useState('');
 	const [checkAgree, setCheckAgree] = useState(false);
-	const [checkNotice, setCheckNotice] = useState(false);
+	const [radioNotice, setRadioNotice] = useState('Receive');
 	const [errors, setErrors] = useState({});
 
 	useEffect(() => {
@@ -40,7 +40,7 @@ const Form = ({ setFormValues }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (Object.keys(errors).length === 0) {
-			setFormValues((state) => [...state, { firstName, lastName, email, deliveryDate, country, checkAgree, checkNotice }]);
+			setFormValues((state) => [...state, { firstName, lastName, email, deliveryDate, country, checkAgree, radioNotice }]);
 			reset();
 		}
 	}
@@ -52,7 +52,7 @@ const Form = ({ setFormValues }) => {
 		setDeliveryDate('');
 		setCountry('');
 		setCheckAgree(false);
-		setCheckNotice(false);
+		setRadioNotice('Receive');
 		setErrors('');
 	}
 
@@ -148,22 +148,38 @@ const Form = ({ setFormValues }) => {
 				<p className="form__check-text">I agree to have my personal data processed {errors?.checkAgree !== undefined && <span className="erorr-validate">*agree should be check</span>}</p>
 				<input
 					className="form__input form__input-check"
+					id="checkAgree"
 					type="checkbox"
 					name="checkAgree"
 					checked={checkAgree}
 					onChange={() => setCheckAgree(prev => !prev)}
 				/>
 			</label>
-			<label className="form__label-check" htmlFor="checkNotice">
-				<p className="form__check-text">Receive notifications about promotions</p>
-				<input
-					className="form__input form__input-check"
-					type="checkbox"
-					name="checkNotice"
-					checked={checkNotice}
-					onChange={() => setCheckNotice(prev => !prev)}
-				/>
-			</label>
+			<div className="switcher">
+				<p className="switcher__text">Receive notifications about promotions?</p>
+				<label className="" htmlFor="radioNoticeReceive">
+					<p className="">Receive</p>
+					<input
+						className=""
+						type="radio"
+						name="radioNoticeReceive"
+						checked={radioNotice === "Receive"}
+						value="Receive"
+						onChange={(e) => {setRadioNotice(e.target.value)}}
+					/>
+				</label>
+				<label className="" htmlFor="radioNoticeNoReceive">
+					<p className="">No receive</p>
+					<input
+						className=""
+						type="radio"
+						name="radioNoticeNoReceive"
+						checked={radioNotice === "NoReceive"}
+						value="NoReceive"
+						onChange={(e) => {setRadioNotice(e.target.value)}}
+					/>
+				</label>
+			</div>
 			<div>
 				<input
 					className="form__input form__input-button"
