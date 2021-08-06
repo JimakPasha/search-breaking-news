@@ -4,6 +4,7 @@ import './form.scss';
 const Form = ({ setFormValues }) => {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
+	const [email, setEmail] = useState('');
 	const [deliveryDate, setDeliveryDate] = useState('');
 	const [country, setCountry] = useState('');
 	const [checkAgree, setCheckAgree] = useState(false);
@@ -12,7 +13,7 @@ const Form = ({ setFormValues }) => {
 
 	useEffect(() => {
 		validate();
-	}, [firstName, lastName, deliveryDate, country, checkAgree])
+	}, [firstName, lastName, email, deliveryDate, country, checkAgree])
 
 	const validate = () => {
 		setErrors({});
@@ -21,6 +22,9 @@ const Form = ({ setFormValues }) => {
 		}
 		if (lastName === '') {
 			setErrors((state) => ({ ...state, lastName }))
+		}
+		if (email === '') {
+			setErrors((state) => ({ ...state, email }))
 		}
 		if (deliveryDate === '') {
 			setErrors((state) => ({ ...state, deliveryDate }))
@@ -36,7 +40,7 @@ const Form = ({ setFormValues }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (Object.keys(errors).length === 0) {
-			setFormValues((state) => [...state, { firstName, lastName, deliveryDate, country, checkAgree, checkNotice }]);
+			setFormValues((state) => [...state, { firstName, lastName, email, deliveryDate, country, checkAgree, checkNotice }]);
 			reset();
 		}
 	}
@@ -44,6 +48,7 @@ const Form = ({ setFormValues }) => {
 	const reset = () => {
 		setFirstName('');
 		setLastName('');
+		setEmail('');
 		setDeliveryDate('');
 		setCountry('');
 		setCheckAgree(false);
@@ -91,6 +96,18 @@ const Form = ({ setFormValues }) => {
 					name="lastName"
 					value={lastName}
 					onChange={(e) => setLastName(e.target.value)}
+				/>
+			</label>
+			<label htmlFor="email">
+				<p>
+					Email: {errors?.email === '' && <span className="erorr-validate">*email should be fill</span>}
+				</p>
+				<input
+					className="form__input"
+					type="email"
+					name="email"
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
 				/>
 			</label>
 			<label htmlFor="deliveryDate">
