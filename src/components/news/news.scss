@@ -1,4 +1,8 @@
 .news {
+	&__loading {
+		filter: grayscale(100%) blur(1px);
+		pointer-events: none;
+	}
 	&__item {
 		padding: 25px;
 		border-radius: 5px;

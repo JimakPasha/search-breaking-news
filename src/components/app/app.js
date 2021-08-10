@@ -7,10 +7,12 @@ import './global.scss';
 
 const App = () => {
 	const [data, setData] = useState([]);
+	const [loading, setLoading] = useState();
+
 	return (
 		<div className="container">
-			<SearchPanel setData={setData}/>
-			<News data={data} />
+			<SearchPanel setData={setData} setLoading={setLoading}/>
+			<News data={data} loading={loading}/>
 		</div>
 	)
 }

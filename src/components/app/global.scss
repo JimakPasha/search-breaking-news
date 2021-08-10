@@ -6,6 +6,10 @@ body {
 	background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(181,181,181,1) 100%);
 }
 
+body .no-sroll {
+	overflow: hidden;
+}
+
 .container {
 	max-width: 1200px;
 	margin: 0 auto;

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../loading/loading';
 import axios from '../../services/api';
 import './searchPanel.scss';
 
 const API_KEY = '75ef4b8ac70542e0901bc9c8663c8ee4';
 
-function SearchPanel({ setData }) {
+function SearchPanel({ setData, setLoading }) {
 	const [searchValue, setSearchValue] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 	const [sortBy, setSortBy] = useState('publishedAt');
@@ -15,7 +16,8 @@ function SearchPanel({ setData }) {
 	useEffect(() => {
 		setPageSize(pageSize);
 		setPage(page);
-	}, [pageSize, page])
+		setLoading(isLoading);
+	}, [pageSize, page, isLoading])
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -43,9 +45,13 @@ function SearchPanel({ setData }) {
 		}
 	}
 
+	document.querySelector('body').style.overflow = isLoading ? 'hidden' : 'auto';
+	const showLoading = isLoading ? <Loading /> : null;
+
 	return (
 		<>
-			<form className="search-panel" onSubmit={handleSubmit}>
+			{showLoading}
+			<form className={showLoading ? "search-panel search-panel__loading" : "search-panel"} onSubmit={handleSubmit}>
 				<div className="search-panel__top">
 					<label className="search-panel__label">
 						<input

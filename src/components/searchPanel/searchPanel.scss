@@ -3,6 +3,10 @@
 	flex-direction: column;
 	align-items: center;
 	margin-bottom: 60px;
+	&__loading {
+		filter: grayscale(100%) blur(1px);
+		pointer-events: none;
+	}
 	&__top {
 		display: flex;
 		justify-content: center;

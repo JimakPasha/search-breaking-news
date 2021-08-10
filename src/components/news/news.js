@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './news.scss';
 
-const News = ({ data }) => {
+const News = ({ data, loading }) => {
 
 	return (
-		<div className="news">
+		<div className={loading ? "news news__loading" : "news"}>
 			<ul className="news__list">
 				{data.map(({ title, author, publishedAt, description, url, urlToImage }, i) => {
 					return (
