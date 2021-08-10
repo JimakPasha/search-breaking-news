@@ -24,6 +24,7 @@ function SearchPanel({ setData, setLoading }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setIsLoading(true);
+		setIsError(false);
 		try {
 			const response = await axios.get(`/everything?q=${searchValue}&sortBy=${sortBy}&apiKey=${API_KEY}&pageSize=${pageSize}&page=${page}`);
 			setData(response.data.articles);
