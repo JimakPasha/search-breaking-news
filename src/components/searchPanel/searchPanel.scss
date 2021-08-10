@@ -74,7 +74,8 @@
 		border-radius: 10px;
 		border: 2px solid #e1e4e9;
 		background: #41424b;
-		opacity: 0.5;
+		box-shadow: 3px 3px 6px -2px #fff;
+		opacity: 1;
 		font-size: 12px;
 		text-transform: uppercase;
 		color: #fff;
@@ -82,13 +83,12 @@
 		transition: all .3s;
 		&:active,
 		&:focus {
-			box-shadow: 0px 0px 6px -2px #fff;
-			transform: scale(0.97);
+			transform: scale(0.8);
 		}
 	}
 	&__input:checked + .sort__btn {
-		box-shadow: 3px 3px 6px -2px #fff;
-		opacity: 1;
+		opacity: .5;
+		transform: scale(0.92);
 	}
 }
 
