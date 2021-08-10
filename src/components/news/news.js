@@ -19,7 +19,7 @@ const News = ({ data }) => {
 									<p className="news__author">{author}</p>
 									<p className="news__data-published">{publishedAt}</p>
 								</div>
-								<a className="news__more-link" href={url}>more details</a>
+								<a className="news__more-link" href={url} target="_blank">more details</a>
 							</div>
 						</li>
 					)
