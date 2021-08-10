@@ -31,6 +31,7 @@ function SearchPanel({ setData, setLoading }) {
 		} catch (e) {
 			console.error(e);
 			setIsError(true);
+			setData([]);
 		} finally {
 			setIsLoading(false);
 		}
