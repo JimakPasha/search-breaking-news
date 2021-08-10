@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Loading from '../loading/loading';
+import Error from '../error/error';
 import axios from '../../services/api';
 import './searchPanel.scss';
 
@@ -7,11 +8,12 @@ const API_KEY = '75ef4b8ac70542e0901bc9c8663c8ee4';
 
 function SearchPanel({ setData, setLoading }) {
 	const [searchValue, setSearchValue] = useState('');
-	const [isLoading, setIsLoading] = useState(false);
 	const [sortBy, setSortBy] = useState('publishedAt');
 	const [pageSize, setPageSize] = useState('10');
 	const [pageAll, setPageAll] = useState('0');
 	const [page, setPage] = useState('1');
+	const [isLoading, setIsLoading] = useState(false);
+	const [isError, setIsError] = useState(false);
 
 	useEffect(() => {
 		setPageSize(pageSize);
@@ -28,6 +30,7 @@ function SearchPanel({ setData, setLoading }) {
 			setPageAll(Math.ceil(response.data.totalResults / pageSize));
 		} catch (e) {
 			console.error(e);
+			setIsError(true);
 		} finally {
 			setIsLoading(false);
 		}
@@ -47,10 +50,10 @@ function SearchPanel({ setData, setLoading }) {
 
 	document.querySelector('body').style.overflow = isLoading ? 'hidden' : 'auto';
 	const showLoading = isLoading ? <Loading /> : null;
+	const showError = isError ? <Error /> : null;
 
 	return (
 		<>
-			{showLoading}
 			<form className={showLoading ? "search-panel search-panel__loading" : "search-panel"} onSubmit={handleSubmit}>
 				<div className="search-panel__top">
 					<label className="search-panel__label">
@@ -136,6 +139,8 @@ function SearchPanel({ setData, setLoading }) {
 					</div>
 				</div>
 			</form>
+			{showLoading}
+			{showError}
 		</>
 	);
 }
