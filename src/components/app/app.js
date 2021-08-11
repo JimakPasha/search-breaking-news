@@ -11,10 +11,10 @@ const App = () => {
 
 	return (
 		<div className="container">
-			<PanelForm setData={setData} setLoading={setLoading}/>
-			<News data={data} loading={loading}/>
+			<PanelForm setData={setData} setLoading={setLoading} />
+			<News data={data} loading={loading} />
 		</div>
-	)
-}
+	);
+};
 
 export default App;

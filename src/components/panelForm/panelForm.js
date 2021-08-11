@@ -19,24 +19,25 @@ function PanelForm({ setData, setLoading }) {
 		setPageSize(pageSize);
 		setPage(page);
 		setLoading(isLoading);
-	}, [pageSize, page, isLoading])
+	}, [pageSize, page, isLoading, setLoading]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setIsLoading(true);
 		setIsError(false);
 		try {
-			const response = await axios.get(`/everything?q=${searchValue}&sortBy=${sortBy}&apiKey=${API_KEY}&pageSize=${pageSize}&page=${page}`);
+			const response = await axios.get(
+				`/everything?q=${searchValue}&sortBy=${sortBy}&apiKey=${API_KEY}&pageSize=${pageSize}&page=${page}`
+			);
 			setData(response.data.articles);
 			setPageAll(Math.ceil(response.data.totalResults / pageSize));
-		} catch (e) {
-			console.error(e);
+		} catch {
 			setIsError(true);
 			setData([]);
 		} finally {
 			setIsLoading(false);
 		}
-	}
+	};
 
 	const handleChange = (e) => {
 		const { value } = e.target;
@@ -48,7 +49,7 @@ function PanelForm({ setData, setLoading }) {
 		} else {
 			setPage('');
 		}
-	}
+	};
 
 	document.querySelector('body').style.overflow = isLoading ? 'hidden' : 'auto';
 	const showLoading = isLoading ? <Loading /> : null;
@@ -56,11 +57,17 @@ function PanelForm({ setData, setLoading }) {
 
 	return (
 		<>
-			<form className={showLoading ? "search-panel search-panel__loading" : "search-panel"} onSubmit={handleSubmit}>
+			<form
+				className={
+					showLoading ? 'search-panel search-panel__loading' : 'search-panel'
+				}
+				onSubmit={handleSubmit}
+			>
 				<div className="search-panel__top">
-					<label className="search-panel__label">
+					<label className="search-panel__label" htmlFor="search-panel__input">
 						<input
 							className="search-panel__input"
+							id="search-panel__input"
 							type="text"
 							value={searchValue}
 							onChange={(e) => setSearchValue(e.target.value)}
@@ -75,9 +82,10 @@ function PanelForm({ setData, setLoading }) {
 						{isLoading ? 'Loading' : 'Search'}
 					</button>
 					<div className="sort search-panel__sort">
-						<label className="sort__label">
+						<label className="sort__label" htmlFor="sort__input-publishedAt">
 							<input
 								className="sort__input"
+								id="sort__input-publishedAt"
 								type="radio"
 								checked={sortBy === 'publishedAt'}
 								value="publishedAt"
@@ -85,9 +93,10 @@ function PanelForm({ setData, setLoading }) {
 							/>
 							<span className="sort__btn">Date published</span>
 						</label>
-						<label className="sort__label">
+						<label className="sort__label" htmlFor="sort__input-popularity">
 							<input
 								className="sort__input"
+								id="sort__input-popularity"
 								type="radio"
 								checked={sortBy === 'popularity'}
 								value="popularity"
@@ -95,9 +104,10 @@ function PanelForm({ setData, setLoading }) {
 							/>
 							<span className="sort__btn">Popularity</span>
 						</label>
-						<label className="sort__label">
+						<label className="sort__label" htmlFor="sort__input-relevancy">
 							<input
 								className="sort__input"
+								id="sort__input-relevancy"
 								type="radio"
 								checked={sortBy === 'relevancy'}
 								value="relevancy"
@@ -109,25 +119,33 @@ function PanelForm({ setData, setLoading }) {
 				</div>
 				<div className="search-panel__bottom">
 					<div className="page search-panel__page">
-						<label className="page__label page__label-pageAll">
+						<label
+							className="page__label page__label-pageAll"
+							htmlFor="page__input"
+						>
 							<span className="page__descr">Pages all</span>
 							<div>
 								<input
 									className="page__input"
+									id="page__input"
 									type="text"
 									value={page}
 									onChange={handleChange}
 								/>
 								<span>из {pageAll}</span>
 							</div>
-
 						</label>
-						<label className="page__label page__label-pageSize">
+						<label
+							className="page__label page__label-pageSize"
+							htmlFor="page__select"
+						>
 							<span className="page__descr">News on page</span>
 							<select
 								className="page__select"
+								id="page__select"
 								value={pageSize}
 								onChange={(e) => setPageSize(e.target.value)}
+								onBlur={(e) => setPageSize(e.target.value)}
 							>
 								<option>3</option>
 								<option>5</option>

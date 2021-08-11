@@ -4,13 +4,14 @@
         "es2021": true
     },
     "extends": [
-				// "eslint:recommended",
-        // "plugin:react/recommended",
-				// "plugin:import/errors",
-				// "plugin:import/warnings",
-        // "airbnb",
-				// "plugin:jsx-a11y/recommended",
-				// "plugin:prettier/recommended"
+				"eslint:recommended",
+        "plugin:react/recommended",
+				"plugin:import/errors",
+				"plugin:import/warnings",
+        "airbnb",
+				"plugin:jsx-a11y/recommended",
+				"plugin:prettier/recommended",
+				"prettier"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -19,21 +20,21 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    // "plugins": [
-    //     "react",
-		// 		"prettier",
-		// 		"jsx-a11y",
-		// 		"react-hooks"
-    // ],
+    "plugins": [
+        "react",
+				"prettier",
+				"jsx-a11y",
+				"react-hooks"
+    ],
     "rules": {
-			// "linebreak-style": ["error", "windows"],
-			// "no-tabs": 0,
-			// "indent": [1, "tab"],
-			// "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-			// "react/jsx-indent": [2, "tab"],
-			// "prettier/prettier": ["error", {"endOfLine": "auto", "useTabs": true}],
-			// "react/prop-types": "off",
-			// "react-hooks/rules-of-hooks": "error",
-			// "react-hooks/exhaustive-deps": "warn"
+			"linebreak-style": ["error", "windows"],
+			"no-tabs": 0,
+			"indent": [1, "tab"],
+			"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+			"react/jsx-indent": [2, "tab"],
+			"prettier/prettier": ["error", {"endOfLine": "auto", "useTabs": true}],
+			"react/prop-types": "off",
+			"react-hooks/rules-of-hooks": "error",
+			"react-hooks/exhaustive-deps": "warn"
     }
 }
