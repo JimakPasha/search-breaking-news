@@ -11,22 +11,21 @@ const App = () => {
 	return (
 		<div className="container">
 			<div className="form-wrapper">
-				<Form setFormValues={setFormValues}/>
+				<Form setFormValues={setFormValues} />
 				<div>
-					{formValues.map((item, i) => {
+					{formValues.map((item) => {
+						const id = Math.floor((Date.now() / Math.random()) * 100);
 						return (
 							<div>
-								<Modal>
-									Thank you! Data saved successfully!
-								</Modal>
-								<Card item = { item } key = { i } />
+								<Modal>Thank you! Data saved successfully!</Modal>
+								<Card item={item} key={id} />
 							</div>
-						)
+						);
 					})}
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 export default App;

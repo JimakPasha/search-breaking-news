@@ -10,7 +10,7 @@ const Card = ({ item }) => {
 			<p>Delivery date: {item.deliveryDate}</p>
 			<p>Country: {item.country}</p>
 		</div>
-	)
-}
+	);
+};
 
 export default Card;
