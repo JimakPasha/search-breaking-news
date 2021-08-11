@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchPanel from '../searchPanel/searchPanel';
+import PanelForm from '../panelForm/panelForm';
 import News from '../news/news';
 import './app.scss';
 import './reset.scss';
@@ -11,7 +11,7 @@ const App = () => {
 
 	return (
 		<div className="container">
-			<SearchPanel setData={setData} setLoading={setLoading}/>
+			<PanelForm setData={setData} setLoading={setLoading}/>
 			<News data={data} loading={loading}/>
 		</div>
 	)

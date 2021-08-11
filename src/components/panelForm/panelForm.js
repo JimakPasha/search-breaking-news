@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Loading from '../loading/loading';
 import Error from '../error/error';
 import axios from '../../services/api';
-import './searchPanel.scss';
+import './panelForm.scss';
 
 const API_KEY = '75ef4b8ac70542e0901bc9c8663c8ee4';
 
-function SearchPanel({ setData, setLoading }) {
+function PanelForm({ setData, setLoading }) {
 	const [searchValue, setSearchValue] = useState('');
 	const [sortBy, setSortBy] = useState('publishedAt');
 	const [pageSize, setPageSize] = useState('10');
@@ -147,4 +147,4 @@ function SearchPanel({ setData, setLoading }) {
 	);
 }
 
-export default SearchPanel;
+export default PanelForm;
