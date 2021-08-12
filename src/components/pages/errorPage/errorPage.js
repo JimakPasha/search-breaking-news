@@ -4,8 +4,8 @@ import './errorPage.scss';
 const ErrorPage = () => {
 	return (
 		<>
-			<h3>Error</h3>
 			<p>Oops... Error 404</p>
+			<p>This page not found :(</p>
 		</>
 	);
 };
