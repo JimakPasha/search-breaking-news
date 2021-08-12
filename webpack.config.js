@@ -34,9 +34,12 @@ module.exports = {
 	output: {
 		filename: filename('js'),
 		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/',
 	},
 	optimization: optimization(),
 	devServer: {
+		historyApiFallback: true,
+		contentBase: './',
 		port: 8080,
 		hot: isDev,
 	},
