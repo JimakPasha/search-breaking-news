@@ -6,7 +6,8 @@ const About = () => {
 		<div className="about">
 			<h3 className="about__title">About</h3>
 			<p className="about__text">
-				In this application, you can use the search bar and find the latest news.
+				In this application, you can use the search bar and find the latest
+				news.
 			</p>
 			<div className="about__peculiarities">
 				<h4 className="about__peculiarities-title">
@@ -23,10 +24,28 @@ const About = () => {
 			</div>
 			<div className="about__others">
 				<p className="about__text">
-					This app is made by JimakPasha. My <a className="about__link" href="https://github.com/JimakPasha" target="_blank">Gihub</a>.
+					This app is made by JimakPasha. My{' '}
+					<a
+						className="about__link"
+						href="https://github.com/JimakPasha"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Gihub
+					</a>
+					.
 				</p>
 				<p className="about__text">
-					Thanks to <a className="about__link" href="https://newsapi.org/" target="_blank">newsapi</a> for providing the api.
+					Thanks to{' '}
+					<a
+						className="about__link"
+						href="https://newsapi.org/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						newsapi
+					</a>{' '}
+					for providing the api.
 				</p>
 			</div>
 		</div>

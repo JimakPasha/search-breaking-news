@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Route,
+	Redirect,
+} from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import Header from '../header/header';
 import Home from '../pages/home/home';
 import About from '../pages/about/about';
@@ -9,6 +14,12 @@ import './app.scss';
 import './reset.scss';
 import './global.scss';
 
+const routes = [
+	{ path: '/', Component: Home },
+	{ path: '/about', Component: About },
+	{ path: '/error', Component: ErrorPage },
+];
+
 const App = () => {
 	return (
 		<Router>
@@ -16,18 +27,23 @@ const App = () => {
 				<Header />
 				<main className="main">
 					<div className="container">
-						<Switch>
-							<Route exact path="/">
-								<Home />
-							</Route>
-							<Route path="/about">
-								<About />
-							</Route>
-							<Route path="/error">
-								<ErrorPage />
-							</Route>
+						<div className="pages">
+							{routes.map(({ path, Component }) => (
+								<Route key={path} exact path={path}>
+									{({ match }) => (
+										<CSSTransition
+											timeout={1000}
+											classNames="page"
+											unmountOnExit
+											in={match != null}
+										>
+											<Component />
+										</CSSTransition>
+									)}
+								</Route>
+							))}
 							<Redirect to="/error" />
-						</Switch>
+						</div>
 					</div>
 				</main>
 				<Footer />

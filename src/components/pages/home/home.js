@@ -8,10 +8,10 @@ const Home = () => {
 	const [loading, setLoading] = useState();
 
 	return (
-		<>
+		<div className="home">
 			<PanelForm setData={setData} setLoading={setLoading} />
 			<News data={data} loading={loading} />
-		</>
+		</div>
 	);
 };
 

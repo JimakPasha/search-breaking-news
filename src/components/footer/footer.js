@@ -10,6 +10,7 @@ const Footer = () => {
 					className="footer__link"
 					href="https://github.com/JimakPasha"
 					target="_blank"
+					rel="noreferrer"
 				>
 					<img className="footer__img" src={github} alt="github" />
 				</a>
