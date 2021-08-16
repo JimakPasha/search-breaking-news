@@ -2,23 +2,20 @@ import React from 'react';
 import {
 	BrowserRouter as Router,
 	Route,
+	Switch,
 	Redirect,
+	useLocation,
 } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Header from '../header/header';
 import Home from '../pages/home/home';
 import About from '../pages/about/about';
+import Details from '../pages/details/details';
 import ErrorPage from '../pages/errorPage/errorPage';
 import Footer from '../footer/footer';
 import './app.scss';
 import './reset.scss';
 import './global.scss';
-
-const routes = [
-	{ path: '/', Component: Home },
-	{ path: '/about', Component: About },
-	{ path: '/error', Component: ErrorPage },
-];
 
 const App = () => {
 	return (
@@ -27,28 +24,46 @@ const App = () => {
 				<Header />
 				<main className="main">
 					<div className="container">
-						<div className="pages">
-							{routes.map(({ path, Component }) => (
-								<Route key={path} exact path={path}>
-									{({ match }) => (
-										<CSSTransition
-											timeout={1000}
-											classNames="page"
-											unmountOnExit
-											in={match != null}
-										>
-											<Component />
-										</CSSTransition>
-									)}
-								</Route>
-							))}
-							<Redirect to="/error" />
-						</div>
+						<PagesAll />
 					</div>
 				</main>
 				<Footer />
 			</div>
 		</Router>
+	);
+};
+
+const PagesAll = () => {
+	const location = useLocation();
+
+	return (
+		<div className="pages">
+			<TransitionGroup>
+				<CSSTransition
+					timeout={300}
+					classNames="page"
+					key={location.key}
+				>
+					<Switch location={location}>
+						<Route exact path="/">
+							<Home />
+						</Route>
+						<Route exact path="/about">
+							<About />
+						</Route>
+						<Route exact path="/details">
+							<Details />
+						</Route>
+						<Route path="/error">
+							<ErrorPage />
+						</Route>
+						<Redirect to="/error">
+							<ErrorPage />
+						</Redirect>
+					</Switch>
+				</CSSTransition>
+			</TransitionGroup>
+		</div>
 	);
 };
 

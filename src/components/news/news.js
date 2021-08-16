@@ -7,7 +7,8 @@ const News = ({ data, loading }) => {
 			<ul className="news__list">
 				{data.map(
 					({ title, author, publishedAt, description, url, urlToImage }) => {
-						const id = Math.floor((Date.now() / Math.random()) * 100);
+						const id =
+							parseInt(url.replace(/\D+/g, '')) + Math.floor(Date.now());
 						return (
 							<li className="news__item" key={id}>
 								<h3 className="news__title">{title}</h3>
