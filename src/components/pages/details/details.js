@@ -1,12 +1,13 @@
 import React from 'react';
 import './details.scss';
 
-const Details = () => {
+const Details = ({ ppp2 }) => {
+	console.log(ppp2.title);
 	return (
 		<div>
-			<p>title</p>
-			<p>description</p>
-			<p>author</p>
+			<div>
+				!!!{ppp2.title}
+			</div>
 		</div>
 	);
 };

@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './news.scss';
 
-const News = ({ data, loading }) => {
+const News = ({ data, loading, setPpp }) => {
+	const [lll, setLll] = useState({});
+	useEffect(() => {
+		setPpp(lll);
+	}, [lll]);
 	return (
 		<div className={loading ? 'news news__loading' : 'news'}>
 			<ul className="news__list">
@@ -21,14 +26,9 @@ const News = ({ data, loading }) => {
 										<p className="news__author">{author}</p>
 										<p className="news__data-published">{publishedAt}</p>
 									</div>
-									<a
-										className="news__more-link"
-										href={url}
-										target="_blank"
-										rel="noreferrer"
-									>
+									<NavLink className="news__more-link" to="/details" onClick={() => setLll({ title })}>
 										more details
-									</a>
+									</NavLink>
 								</div>
 							</li>
 						);

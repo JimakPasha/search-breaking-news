@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -35,24 +35,21 @@ const App = () => {
 
 const PagesAll = () => {
 	const location = useLocation();
+	const [ppp2, setPpp2] = useState({});
 
 	return (
 		<div className="pages">
 			<TransitionGroup>
-				<CSSTransition
-					timeout={300}
-					classNames="page"
-					key={location.key}
-				>
+				<CSSTransition timeout={300} classNames="page" key={location.key}>
 					<Switch location={location}>
 						<Route exact path="/">
-							<Home />
+							<Home setPpp2={setPpp2} />
 						</Route>
 						<Route exact path="/about">
 							<About />
 						</Route>
 						<Route exact path="/details">
-							<Details />
+							<Details ppp2={ppp2} />
 						</Route>
 						<Route path="/error">
 							<ErrorPage />
