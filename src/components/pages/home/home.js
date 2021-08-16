@@ -3,19 +3,20 @@ import PanelForm from '../../panelForm/panelForm';
 import News from '../../news/news';
 import './home.scss';
 
-const Home = ({ setPpp2 }) => {
+const Home = ({ setArticleDetailsItem }) => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState();
-	const [ppp, setPpp] = useState({});
+	const [articleDetails, setArticleDetails] = useState({});
+	const [searchValueData, setSearchValueData] = useState('');
 
 	useEffect(() => {
-		setPpp2(ppp);
-	}, [ppp]);
+		setArticleDetailsItem(articleDetails);
+	}, [articleDetails]);
 
 	return (
 		<div className="home">
-			<PanelForm setData={setData} setLoading={setLoading} />
-			<News setPpp={setPpp} data={data} loading={loading} />
+			<PanelForm setSearchValueData={setSearchValueData} setData={setData} setLoading={setLoading} />
+			<News data={data} setArticleDetails={setArticleDetails} searchValueData={searchValueData} loading={loading} />
 		</div>
 	);
 };

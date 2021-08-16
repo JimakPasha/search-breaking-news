@@ -35,7 +35,7 @@ const App = () => {
 
 const PagesAll = () => {
 	const location = useLocation();
-	const [ppp2, setPpp2] = useState({});
+	const [articleDetails, setArticleDetails] = useState({});
 
 	return (
 		<div className="pages">
@@ -43,13 +43,13 @@ const PagesAll = () => {
 				<CSSTransition timeout={300} classNames="page" key={location.key}>
 					<Switch location={location}>
 						<Route exact path="/">
-							<Home setPpp2={setPpp2} />
+							<Home setArticleDetailsItem={setArticleDetails} />
 						</Route>
 						<Route exact path="/about">
 							<About />
 						</Route>
-						<Route exact path="/details">
-							<Details ppp2={ppp2} />
+						<Route path="/details/:title">
+							<Details articleDetails={articleDetails} />
 						</Route>
 						<Route path="/error">
 							<ErrorPage />

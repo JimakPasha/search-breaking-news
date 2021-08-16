@@ -6,7 +6,7 @@ import './panelForm.scss';
 
 const API_KEY = '75ef4b8ac70542e0901bc9c8663c8ee4';
 
-function PanelForm({ setData, setLoading }) {
+function PanelForm({ setData, setLoading, setSearchValueData }) {
 	const [searchValue, setSearchValue] = useState('');
 	const [sortBy, setSortBy] = useState('publishedAt');
 	const [pageSize, setPageSize] = useState('10');
@@ -20,6 +20,10 @@ function PanelForm({ setData, setLoading }) {
 		setPage(page);
 		setLoading(isLoading);
 	}, [pageSize, page, isLoading, setLoading]);
+
+	useEffect(() => {
+		setSearchValueData(searchValue);
+	}, [searchValue]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();

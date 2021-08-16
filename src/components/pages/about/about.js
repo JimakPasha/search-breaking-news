@@ -20,6 +20,9 @@ const About = () => {
 					<li className="about__peculiarities-item">
 						- You can make 100 requests within 12 hours -
 					</li>
+					<li className="about__peculiarities-item">
+						- On the "details" page, the content of the article is incomplete -
+					</li>
 				</ul>
 			</div>
 			<div className="about__others">
