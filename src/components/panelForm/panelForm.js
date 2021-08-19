@@ -19,10 +19,12 @@ function PanelForm({ setData, setLoading, setSearchValueData }) {
 		setPageSize(pageSize);
 		setPage(page);
 		setLoading(isLoading);
+		console.log('useef1resp');
 	}, [pageSize, page, isLoading, setLoading]);
 
 	useEffect(() => {
 		setSearchValueData(searchValue);
+		console.log('useef2resp');
 	}, [searchValue]);
 
 	const handleSubmit = async (e) => {
@@ -33,6 +35,7 @@ function PanelForm({ setData, setLoading, setSearchValueData }) {
 			const response = await axios.get(
 				`/everything?q=${searchValue}&sortBy=${sortBy}&apiKey=${API_KEY}&pageSize=${pageSize}&page=${page}`
 			);
+			console.log('respInTry');
 			setData(response.data.articles);
 			setPageAll(Math.ceil(response.data.totalResults / pageSize));
 		} catch {
@@ -41,6 +44,7 @@ function PanelForm({ setData, setLoading, setSearchValueData }) {
 		} finally {
 			setIsLoading(false);
 		}
+		console.log('resp');
 	};
 
 	const handleChange = (e) => {

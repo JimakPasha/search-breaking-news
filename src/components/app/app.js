@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -12,7 +12,7 @@ import Home from '../pages/home/home';
 import About from '../pages/about/about';
 import Details from '../pages/details/details';
 import ErrorPage from '../pages/errorPage/errorPage';
-import Footer from '../footer/footer';
+// import Footer from '../footer/footer';
 import './app.scss';
 import './reset.scss';
 import './global.scss';
@@ -27,7 +27,7 @@ const App = () => {
 						<PagesAll />
 					</div>
 				</main>
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		</Router>
 	);
@@ -36,6 +36,12 @@ const App = () => {
 const PagesAll = () => {
 	const location = useLocation();
 	const [articleDetails, setArticleDetails] = useState({});
+	const [titleUrl, setTitleUrl] = useState('');
+
+	useEffect(() => {
+		const { title } = articleDetails;
+		setTitleUrl(title);
+	}, [articleDetails]);
 
 	return (
 		<div className="pages">
@@ -48,7 +54,7 @@ const PagesAll = () => {
 						<Route exact path="/about">
 							<About />
 						</Route>
-						<Route path="/details/:title">
+						<Route path={`/details/:${titleUrl}`}>
 							<Details articleDetails={articleDetails} />
 						</Route>
 						<Route path="/error">
