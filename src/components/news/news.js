@@ -11,9 +11,16 @@ const News = ({ data, loading, setArticleDetails, searchValueData }) => {
 		<div className={loading ? 'news news__loading' : 'news'}>
 			<ul className="news__list">
 				{data.map(
-					({ title, author, publishedAt, description, url, urlToImage, content }) => {
-						const id =
-							parseInt(url.replace(/\D+/g, '')) + Math.floor(Date.now());
+					({
+						title,
+						author,
+						publishedAt,
+						description,
+						url,
+						urlToImage,
+						content,
+					}) => {
+						const id = Math.floor(Date.now()) + Math.floor(Math.random() * 10);
 						return (
 							<li className="news__item" key={id}>
 								<h3 className="news__title">{title}</h3>
@@ -26,7 +33,21 @@ const News = ({ data, loading, setArticleDetails, searchValueData }) => {
 										<p className="news__author">{author}</p>
 										<p className="news__data-published">{publishedAt}</p>
 									</div>
-									<NavLink className="news__more-link" to={`/details/:${searchValueData}/:${title}`} onClick={() => setArticle({ title, author, publishedAt, description, url, urlToImage, content })}>
+									<NavLink
+										className="news__more-link"
+										to={`/details/:${searchValueData}/:${title}`}
+										onClick={() =>
+											setArticle({
+												title,
+												author,
+												publishedAt,
+												description,
+												url,
+												urlToImage,
+												content,
+											})
+										}
+									>
 										more details
 									</NavLink>
 								</div>

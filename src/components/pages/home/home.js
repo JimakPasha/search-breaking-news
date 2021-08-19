@@ -15,8 +15,17 @@ const Home = ({ setArticleDetailsItem }) => {
 
 	return (
 		<div className="home">
-			<PanelForm setSearchValueData={setSearchValueData} setData={setData} setLoading={setLoading} />
-			<News data={data} setArticleDetails={setArticleDetails} searchValueData={searchValueData} loading={loading} />
+			<PanelForm
+				setSearchValueData={setSearchValueData}
+				setData={setData}
+				setLoading={setLoading}
+			/>
+			<News
+				data={data}
+				setArticleDetails={setArticleDetails}
+				searchValueData={searchValueData}
+				loading={loading}
+			/>
 		</div>
 	);
 };
