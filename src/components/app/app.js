@@ -22,7 +22,7 @@ const App = () => {
 	const loading = useSelector((state) => state.search.loading);
 	return (
 		<Router>
-			<div className={loading ? 'app__loading' : 'app'} >
+			<div className={loading ? 'app__loading' : 'app'}>
 				<Header />
 				<main className="main">
 					<div className="container">

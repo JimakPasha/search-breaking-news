@@ -4,7 +4,6 @@ import Loading from '../../loading/loading';
 import Error from '../../error/error';
 import './details.scss';
 
-
 const Details = () => {
 	const news = useSelector((state) => state.search.dataDetails);
 	const loading = useSelector((state) => state.search.loading);
@@ -19,11 +18,7 @@ const Details = () => {
 					return (
 						<div className="details">
 							<h3 className="details__title">{title}</h3>
-							<img
-								className="details__img"
-								src={urlToImage}
-								alt={title}
-							/>
+							<img className="details__img" src={urlToImage} alt={title} />
 							<p className="details__content">{content}</p>
 							<div className="details__description">
 								<a
@@ -43,7 +38,8 @@ const Details = () => {
 							</div>
 						</div>
 					)
-				})}
+				}
+				)}
 			</div>
 		</>
 	);

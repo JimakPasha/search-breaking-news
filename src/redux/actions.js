@@ -40,10 +40,17 @@ export function getNews(searchValue, sortBy, pageSize, page) {
 	return function(dispatch) {
 		dispatch(fetchNews());
 		return axios
-			.get(`/everything?q=${searchValue}&sortBy=${sortBy}&apiKey=9b77a5968eb64f209b33b91387731422&pageSize=${pageSize}&page=${page}`)
+			.get(
+				`
+			/everything?q=${searchValue}&sortBy=${sortBy}&apiKey=9b77a5968eb64f209b33b91387731422&pageSize=${pageSize}&page=${page}
+			`
+			)
 			.then(
-				(res) => dispatch(receiveNews(res.data.articles, Math.ceil(res.data.totalResults / pageSize))),
-				(error) => dispatch(failGettingNews())
+				(res) =>
+					dispatch(receiveNews(res.data.articles, Math.ceil(res.data.totalResults / pageSize)
+					)
+					),
+				() => dispatch(failGettingNews())
 			);
 	};
 }
@@ -53,15 +60,14 @@ export function getNewsDetails(titleDetails) {
 		dispatch(setTitleDetails(titleDetails));
 		dispatch(fetchNews());
 		return axios
-			.get(`/everything?q=${titleDetails}&apiKey=9b77a5968eb64f209b33b91387731422&pageSize=${1}&page=${1}`)
+			.get(
+				`
+				/everything?q=${titleDetails}&apiKey=9b77a5968eb64f209b33b91387731422&pageSize=${1}&page=${1}
+				`
+			)
 			.then(
 				(res) => dispatch(receiveNewsDetails(res.data.articles)),
-				(error) => dispatch(failGettingNews())
+				() => dispatch(failGettingNews())
 			);
 	};
 }
-
-
-
-
-//75ef4b8ac70542e0901bc9c8663c8ee4

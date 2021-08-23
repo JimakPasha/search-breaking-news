@@ -19,16 +19,9 @@ const News = () => {
 			<div className="news">
 				<ul className="news__list">
 					{news.map(
-						({
-							title,
-							author,
-							publishedAt,
-							description,
-							url,
-							urlToImage,
-							content,
-						}) => {
-							const id = Math.floor(Date.now()) + Math.floor(Math.random() * 10);
+						({ title, author, publishedAt, description, urlToImage }) => {
+							const id =
+								Math.floor(Date.now()) + Math.floor(Math.random() * 10);
 							return (
 								<li className="news__item" key={id}>
 									<h3 className="news__title">{title}</h3>
@@ -46,8 +39,8 @@ const News = () => {
 											to={`/details/:${title}`}
 											onClick={() => dispatch(getNewsDetails(title))}
 										>
-										more details
-									</NavLink>
+											more details
+										</NavLink>
 									</div>
 								</li>
 							);
