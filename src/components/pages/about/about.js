@@ -27,7 +27,7 @@ const About = () => {
 			</div>
 			<div className="about__others">
 				<p className="about__text">
-					This app is made by JimakPasha. My{' '}
+					This application is made by JimakPasha. My{' '}
 					<a
 						className="about__link"
 						href="https://github.com/JimakPasha"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -7,6 +7,7 @@ import {
 	useLocation,
 } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { useSelector } from 'react-redux';
 import Header from '../header/header';
 import Home from '../pages/home/home';
 import About from '../pages/about/about';
@@ -18,9 +19,10 @@ import './reset.scss';
 import './global.scss';
 
 const App = () => {
+	const loading = useSelector((state) => state.search.loading);
 	return (
 		<Router>
-			<div className="app">
+			<div className={loading ? 'app__loading' : 'app'} >
 				<Header />
 				<main className="main">
 					<div className="container">
@@ -35,13 +37,7 @@ const App = () => {
 
 const PagesAll = () => {
 	const location = useLocation();
-	const [articleDetails, setArticleDetails] = useState({});
-	const [titleUrl, setTitleUrl] = useState('');
-
-	useEffect(() => {
-		const { title } = articleDetails;
-		setTitleUrl(title);
-	}, [articleDetails]);
+	const titleDetails = useSelector((state) => state.search.titleDetails);
 
 	return (
 		<div className="pages">
@@ -49,13 +45,13 @@ const PagesAll = () => {
 				<CSSTransition timeout={300} classNames="page" key={location.key}>
 					<Switch location={location}>
 						<Route exact path="/">
-							<Home setArticleDetailsItem={setArticleDetails} />
+							<Home />
 						</Route>
 						<Route exact path="/about">
 							<About />
 						</Route>
-						<Route path={`/details/:${titleUrl}`}>
-							<Details articleDetails={articleDetails} />
+						<Route path={`/details/:${titleDetails}`}>
+							<Details />
 						</Route>
 						<Route path="/error">
 							<ErrorPage />

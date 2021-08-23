@@ -1,46 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import Loading from '../loading/loading';
-import Error from '../error/error';
-import axios from '../../services/api';
+import React, { useState } from 'react';
 import './panelForm.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { getNews, inputSearch } from '../../redux/actions';
 
-const API_KEY = '75ef4b8ac70542e0901bc9c8663c8ee4';
-
-function PanelForm({ setData, setLoading, setSearchValueData }) {
+function PanelForm() {
 	const [searchValue, setSearchValue] = useState('');
 	const [sortBy, setSortBy] = useState('publishedAt');
 	const [pageSize, setPageSize] = useState('10');
-	const [pageAll, setPageAll] = useState('0');
 	const [page, setPage] = useState('1');
-	const [isLoading, setIsLoading] = useState(false);
-	const [isError, setIsError] = useState(false);
 
-	useEffect(() => {
-		setPageSize(pageSize);
-		setPage(page);
-		setLoading(isLoading);
-	}, [pageSize, page, isLoading, setLoading]);
+	const loading = useSelector((state) => state.search.loading);
+	const pages = useSelector((state) => state.search.pages);
+	const dispatch = useDispatch();
 
-	useEffect(() => {
-		setSearchValueData(searchValue);
-	}, [searchValue]);
-
-	const handleSubmit = async (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		setIsLoading(true);
-		setIsError(false);
-		try {
-			const response = await axios.get(
-				`/everything?q=${searchValue}&sortBy=${sortBy}&apiKey=${API_KEY}&pageSize=${pageSize}&page=${page}`
-			);
-			setData(response.data.articles);
-			setPageAll(Math.ceil(response.data.totalResults / pageSize));
-		} catch {
-			setIsError(true);
-			setData([]);
-		} finally {
-			setIsLoading(false);
-		}
+		dispatch(getNews(searchValue, sortBy, pageSize, page));
+		dispatch(inputSearch(searchValue));
 	};
 
 	const handleChange = (e) => {
@@ -55,18 +31,9 @@ function PanelForm({ setData, setLoading, setSearchValueData }) {
 		}
 	};
 
-	document.querySelector('body').style.overflow = isLoading ? 'hidden' : 'auto';
-	const showLoading = isLoading ? <Loading /> : null;
-	const showError = isError ? <Error /> : null;
-
 	return (
 		<>
-			<form
-				className={
-					showLoading ? 'search-panel search-panel__loading' : 'search-panel'
-				}
-				onSubmit={handleSubmit}
-			>
+			<form className="search-panel" onSubmit={handleSubmit}>
 				<div className="search-panel__top">
 					<label className="search-panel__label" htmlFor="search-panel__input">
 						<input
@@ -75,15 +42,10 @@ function PanelForm({ setData, setLoading, setSearchValueData }) {
 							type="text"
 							value={searchValue}
 							onChange={(e) => setSearchValue(e.target.value)}
-							disabled={isLoading}
 						/>
 					</label>
-					<button
-						className="search-panel__btn"
-						type="submit"
-						disabled={isLoading}
-					>
-						{isLoading ? 'Loading' : 'Search'}
+					<button className="search-panel__btn" type="submit">
+						{loading ? 'Loading' : 'Search'}
 					</button>
 					<div className="sort search-panel__sort">
 						<label className="sort__label" htmlFor="sort__input-publishedAt">
@@ -136,7 +98,7 @@ function PanelForm({ setData, setLoading, setSearchValueData }) {
 									value={page}
 									onChange={handleChange}
 								/>
-								<span>из {pageAll}</span>
+								<span>из {pages}</span>
 							</div>
 						</label>
 						<label
@@ -163,8 +125,6 @@ function PanelForm({ setData, setLoading, setSearchValueData }) {
 					</div>
 				</div>
 			</form>
-			{showLoading}
-			{showError}
 		</>
 	);
 }
