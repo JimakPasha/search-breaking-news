@@ -79,7 +79,7 @@ function PanelForm() {
 								value="relevancy"
 								onChange={(e) => setSortBy(e.target.value)}
 							/>
-							<span className="sort__btn">Relevancy</span>
+							<span className="sort__btn" data-testid="test-btn">Relevancy</span>
 						</label>
 					</div>
 				</div>
