@@ -11,7 +11,7 @@ const Form = ({ setFormValues }) => {
 	const [radioNotice, setRadioNotice] = useState('Receive');
 	const [errors, setErrors] = useState({});
 
-	const validate = () => {
+	useEffect(() => {
 		setErrors({});
 		if (firstName === '') {
 			setErrors((state) => ({ ...state, firstName }));
@@ -31,10 +31,6 @@ const Form = ({ setFormValues }) => {
 		if (!checkAgree) {
 			setErrors((state) => ({ ...state, checkAgree }));
 		}
-	};
-
-	useEffect(() => {
-		validate();
 	}, [firstName, lastName, email, deliveryDate, country, checkAgree]);
 
 	const reset = () => {
