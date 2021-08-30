@@ -65,6 +65,11 @@ const Details = () => {
 						</p>
 					</div>
 				</div>
+				<div className="details__back-home-wrapper">
+					<Link className="details__back-home" exact to="/">
+						Back to Search
+					</Link>
+				</div>
 			</div>
 		);
 	};
