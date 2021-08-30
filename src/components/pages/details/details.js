@@ -4,7 +4,7 @@ import './details.scss';
 
 const API_KEY = '75ef4b8ac70542e0901bc9c8663c8ee4';
 
-const Details = ({ articleDetails: { title } }) => {
+const Details = () => {
 	const [data, setData] = useState([{}]);
 
 	const request = async () => {

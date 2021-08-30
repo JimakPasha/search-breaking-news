@@ -2,11 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './news.scss';
 
-const News = ({ data, loading, setArticleDetails, searchValueData }) => {
-	const [article, setArticle] = useState({});
-	useEffect(() => {
-		setArticleDetails(article);
-	}, [article]);
+const News = ({ data, loading }) => {
 	return (
 		<div className={loading ? 'news news__loading' : 'news'}>
 			<ul className="news__list">
@@ -20,7 +16,7 @@ const News = ({ data, loading, setArticleDetails, searchValueData }) => {
 						urlToImage,
 						content,
 					}) => {
-						const id = Math.floor(Date.now()) + Math.floor(Math.random() * 10);
+						const id = Math.floor((Date.now() / Math.random()) * 100);
 						return (
 							<li className="news__item" key={id}>
 								<h3 className="news__title">{title}</h3>
@@ -33,7 +29,7 @@ const News = ({ data, loading, setArticleDetails, searchValueData }) => {
 										<p className="news__author">{author}</p>
 										<p className="news__data-published">{publishedAt}</p>
 									</div>
-									<NavLink
+									{/* <NavLink
 										className="news__more-link"
 										to={`/details/:${searchValueData}/:${title}`}
 										onClick={() =>
@@ -49,7 +45,7 @@ const News = ({ data, loading, setArticleDetails, searchValueData }) => {
 										}
 									>
 										more details
-									</NavLink>
+									</NavLink> */}
 								</div>
 							</li>
 						);

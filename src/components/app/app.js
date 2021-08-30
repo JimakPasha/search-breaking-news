@@ -35,13 +35,6 @@ const App = () => {
 
 const PagesAll = () => {
 	const location = useLocation();
-	const [articleDetails, setArticleDetails] = useState({});
-	const [titleUrl, setTitleUrl] = useState('');
-
-	useEffect(() => {
-		const { title } = articleDetails;
-		setTitleUrl(title);
-	}, [articleDetails]);
 
 	return (
 		<div className="pages">
@@ -49,14 +42,14 @@ const PagesAll = () => {
 				<CSSTransition timeout={300} classNames="page" key={location.key}>
 					<Switch location={location}>
 						<Route exact path="/">
-							<Home setArticleDetailsItem={setArticleDetails} />
+							<Home />
 						</Route>
 						<Route exact path="/about">
 							<About />
 						</Route>
-						<Route path={`/details/:${titleUrl}`}>
-							<Details articleDetails={articleDetails} />
-						</Route>
+						{/* <Route path={'/details/:title'}>
+							<Details />
+						</Route> */}
 						<Route path="/error">
 							<ErrorPage />
 						</Route>
