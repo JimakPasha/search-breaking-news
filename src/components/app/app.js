@@ -47,9 +47,9 @@ const PagesAll = () => {
 						<Route exact path="/about">
 							<About />
 						</Route>
-						{/* <Route path={'/details/:title'}>
+						<Route path={'/details/:title'}>
 							<Details />
-						</Route> */}
+						</Route>
 						<Route path="/error">
 							<ErrorPage />
 						</Route>
