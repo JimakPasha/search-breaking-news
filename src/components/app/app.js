@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -47,7 +47,7 @@ const PagesAll = () => {
 						<Route exact path="/about">
 							<About />
 						</Route>
-						<Route path={'/details/:title'}>
+						<Route path="/details/:title">
 							<Details />
 						</Route>
 						<Route path="/error">

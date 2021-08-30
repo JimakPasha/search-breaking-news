@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import Loading from '../../loading/loading';
+// import Error from '../../error/error';
 import axios from '../../../services/api';
-import {
-	useLocation,
-	useParams,
-	Link,
-} from 'react-router-dom';
 import './details.scss';
 
 const API_KEY = '75ef4b8ac70542e0901bc9c8663c8ee4';
@@ -14,6 +11,7 @@ const Details = () => {
 	const params = useParams();
 	const [data, setData] = useState([]);
 	const [isloading, setIsLoading] = useState(true);
+	// const [isError, setIsError] = useState(false);
 	const [news, setNews] = useState();
 
 	const request = async () => {
@@ -22,10 +20,12 @@ const Details = () => {
 				`/everything?q=${params.title}&apiKey=${API_KEY}`
 			);
 			setData(response.data.articles);
-		} catch {
 		} finally {
 			setIsLoading(false);
 		}
+		//  catch {
+		// 	setIsError(true);
+		// }
 	};
 
 	useEffect(() => {
@@ -33,21 +33,16 @@ const Details = () => {
 	}, []);
 
 	useEffect(() => {
-		const index = data.findIndex((news) => news.title === params.title);
+		const index = data.findIndex((newsOne) => newsOne.title === params.title);
 		const newsOne = data[index];
 		setNews(newsOne);
 	}, [data]);
-
 
 	const view = () => {
 		return (
 			<div className="details">
 				<h3 className="details__title">{news.title}</h3>
-				<img
-					className="details__img"
-					src={news.urlToImage}
-					alt={news.title}
-				/>
+				<img className="details__img" src={news.urlToImage} alt={news.title} />
 				<p className="details__content">{news.content}</p>
 				<div className="details__description">
 					<a
@@ -74,7 +69,7 @@ const Details = () => {
 		);
 	};
 
-	return <div>{isloading ? <Loading /> : view()}</div>
+	return <>{isloading ? <Loading /> : view()}</>;
 };
 
 export default Details;
