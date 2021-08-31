@@ -1,13 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getNewsDetails } from '../../redux/actions';
 import Loading from '../loading/loading';
 import Error from '../error/error';
 import './news.scss';
 
 const News = () => {
-	const dispatch = useDispatch();
 	const news = useSelector((state) => state.search.data);
 	const loading = useSelector((state) => state.search.loading);
 	const error = useSelector((state) => state.search.error);
@@ -36,8 +34,7 @@ const News = () => {
 										</div>
 										<NavLink
 											className="news__more-link"
-											to={`/details/:${title}`}
-											onClick={() => dispatch(getNewsDetails(title))}
+											to={`/details/${title}`}
 										>
 											more details
 										</NavLink>

@@ -37,7 +37,6 @@ const App = () => {
 
 const PagesAll = () => {
 	const location = useLocation();
-	const titleDetails = useSelector((state) => state.search.titleDetails);
 
 	return (
 		<div className="pages">
@@ -50,7 +49,7 @@ const PagesAll = () => {
 						<Route exact path="/about">
 							<About />
 						</Route>
-						<Route path={`/details/:${titleDetails}`}>
+						<Route path="/details/:title">
 							<Details />
 						</Route>
 						<Route path="/error">

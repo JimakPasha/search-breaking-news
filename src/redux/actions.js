@@ -21,6 +21,7 @@ export function receiveNews(news, pages) {
 }
 
 export function receiveNewsDetails(news) {
+	console.log('action', news);
 	return { type: RECEIVE_NEWS_DETAILS, news };
 }
 
@@ -30,10 +31,6 @@ export function failGettingNews() {
 
 export function inputSearch(searchValue) {
 	return { type: SEARCH_VALUE, searchValue };
-}
-
-export function setTitleDetails(titleDetails) {
-	return { type: TITLE_DETAILS, titleDetails };
 }
 
 export function getNews(searchValue, sortBy, pageSize, page) {
@@ -57,16 +54,18 @@ export function getNews(searchValue, sortBy, pageSize, page) {
 
 export function getNewsDetails(titleDetails) {
 	return function (dispatch) {
-		dispatch(setTitleDetails(titleDetails));
 		dispatch(fetchNews());
 		return axios
 			.get(
 				`
-				/everything?q=${titleDetails}&apiKey=9b77a5968eb64f209b33b91387731422&pageSize=${1}&page=${1}
+				/everything?q=${titleDetails}&apiKey=9b77a5968eb64f209b33b91387731422
 				`
 			)
 			.then(
-				(res) => dispatch(receiveNewsDetails(res.data.articles)),
+				(res) => {
+					const index = res.data.articles.findIndex((newsOne) => newsOne.title === titleDetails);
+					dispatch(receiveNewsDetails(res.data.articles[index]));
+				},
 				() => dispatch(failGettingNews())
 			);
 	};
