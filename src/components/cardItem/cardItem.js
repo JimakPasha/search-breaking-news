@@ -13,11 +13,6 @@ function CardItem({
 	freeShipping,
 	sail,
 }) {
-	const freeShippingView = freeShipping ? (
-		<div className="card-item__shipping">Free Shipping</div>
-	) : (
-		<div className="card-item__shipping">&#0;</div>
-	);
 	const sailView = sail ? <div className="card-item__sail">sail</div> : null;
 	return (
 		<div className="card-item">
@@ -35,7 +30,9 @@ function CardItem({
 						{rating}
 					</div>
 				</div>
-				{freeShippingView}
+				<div className="card-item__shipping">
+					{freeShipping ? 'Free Shipping' : '-'}
+				</div>
 				<div className="card-item__sold">{sold} sold</div>
 				<a
 					className="card-item__store"
