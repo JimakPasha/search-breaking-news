@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getNewsDetails } from '../../../redux/actions';
 import Loading from '../../loading/loading';
 import Error from '../../error/error';
@@ -53,6 +53,11 @@ const View = () => {
 						Published: {news.publishedAt}
 					</p>
 				</div>
+			</div>
+			<div className="details__back-home-wrapper">
+				<Link className="details__back-home" exact to="/">
+					Back to Search
+				</Link>
 			</div>
 		</div>
 	);
