@@ -4,11 +4,10 @@ import News from '../../news/news';
 import './home.scss';
 
 const Home = () => {
-
 	return (
 		<div className="home">
-			<PanelForm/>
-			<News/>
+			<PanelForm />
+			<News />
 		</div>
 	);
 };

@@ -13,14 +13,12 @@ const Details = () => {
 	const error = useSelector((state) => state.search.error);
 
 	useEffect(() => {
-		console.log('use-eff-details');
 		dispatch(getNewsDetails(params.title));
 	}, []);
 
 	const showError = error ? <Error /> : null;
 	const showloading = loading ? <Loading /> : null;
 	const content = !(loading || error) ? <View /> : null;
-
 
 	return (
 		<>
@@ -57,8 +55,7 @@ const View = () => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 export default Details;
-
