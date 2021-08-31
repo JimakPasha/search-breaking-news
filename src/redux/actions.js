@@ -60,7 +60,7 @@ export function getNewsDetails(titleDetails) {
 		return axios
 			.get(
 				`
-				/everything?q=${titleDetails}&apiKey=9b77a5968eb64f209b33b913877314220
+				/everything?q=${titleDetails}&apiKey=9b77a5968eb64f209b33b91387731422
 				`
 			)
 			.then(
