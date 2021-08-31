@@ -29,7 +29,7 @@
     "rules": {
 			"linebreak-style": ["error", "windows"],
 			"no-tabs": 0,
-			"indent": [1, "tab"],
+			"indent": "indent": [1, "tab", {"SwitchCase": 1}],
 			"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 			"react/jsx-indent": [2, "tab"],
 			"prettier/prettier": ["error", {"endOfLine": "auto", "useTabs": true}],
