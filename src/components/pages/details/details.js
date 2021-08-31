@@ -5,7 +5,7 @@ import Error from '../../error/error';
 import axios from '../../../services/api';
 import './details.scss';
 
-const API_KEY = '75ef4b8ac70542e0901bc9c8663c8ee40';
+const API_KEY = '75ef4b8ac70542e0901bc9c8663c8ee4';
 
 const Details = () => {
 	const params = useParams();

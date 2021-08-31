@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './error.scss';
 
 const Error = () => {
@@ -8,13 +9,9 @@ const Error = () => {
 				Oops... An unexpected error has occurred. Please reload the page and try
 				again
 			</p>
-			<button
-				type="button"
-				className="error__btn"
-				onClick={() => window.location.reload()}
-			>
-				Reload
-			</button>
+			<NavLink className="error__btn" exact to="/">
+				Ok
+			</NavLink>
 		</div>
 	);
 };
