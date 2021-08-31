@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useSelector } from 'react-redux';
-import { createMemoryHistory } from 'history';
 import Header from '../header/header';
 import Home from '../pages/home/home';
 import About from '../pages/about/about';
@@ -36,9 +35,8 @@ const App = () => {
 	);
 };
 
-export const PagesAll = () => {
+const PagesAll = () => {
 	const location = useLocation();
-	const titleDetails = useSelector((state) => state.search.titleDetails);
 
 	return (
 		<div className="pages">
@@ -51,7 +49,7 @@ export const PagesAll = () => {
 						<Route exact path="/about">
 							<About />
 						</Route>
-						<Route path={`/details/:${titleDetails}`}>
+						<Route path="/details/:title">
 							<Details />
 						</Route>
 						<Route path="/error">

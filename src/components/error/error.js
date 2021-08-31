@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { reset } from '../../redux/actions';
 import './error.scss';
 
@@ -11,13 +12,14 @@ const Error = () => {
 			<p className="error__text">
 				Oops... An unexpected error has occurred. Please try again
 			</p>
-			<button
-				type="button"
+			<NavLink
 				className="error__btn"
 				onClick={() => dispatch(reset())}
+				exact
+				to="/"
 			>
 				Ok
-			</button>
+			</NavLink>
 		</div>
 	);
 };

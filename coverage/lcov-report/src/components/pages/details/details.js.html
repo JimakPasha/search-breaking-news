@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.75% </span>
+                <span class="strong">19.7% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/48</span>
+                <span class='fraction'>13/66</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.75% </span>
+                <span class="strong">19.7% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/48</span>
+                <span class='fraction'>13/66</span>
             </div>
         
             
@@ -105,13 +105,33 @@
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -121,6 +141,22 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -153,50 +189,68 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import { useSelector } from 'react-redux';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams, Link } from 'react-router-dom';
+import { getNewsDetails } from '../../../redux/actions';
 import Loading from '../../loading/loading';
 import Error from '../../error/error';
 import './details.scss';
 &nbsp;
 const Details = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >	const news = useSelector((state) =&gt; state.search.dataDetails);</span>
+<span class="cstat-no" title="statement not covered" >	const dispatch = useDispatch();</span>
+<span class="cstat-no" title="statement not covered" >	const params = useParams();</span>
 <span class="cstat-no" title="statement not covered" >	const loading = useSelector((state) =&gt; state.search.loading);</span>
 <span class="cstat-no" title="statement not covered" >	const error = useSelector((state) =&gt; state.search.error);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >	useEffect(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >		dispatch(getNewsDetails(params.title));</span>
+<span class="cstat-no" title="statement not covered" >	}, []);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >	const showError = error ? &lt;Error /&gt; : null;</span>
+<span class="cstat-no" title="statement not covered" >	const showloading = loading ? &lt;Loading /&gt; : null;</span>
+<span class="cstat-no" title="statement not covered" >	const content = !(loading || error) ? &lt;View /&gt; : null;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >	return (</span>
 <span class="cstat-no" title="statement not covered" >		&lt;&gt;</span>
 <span class="cstat-no" title="statement not covered" >			&lt;div&gt;</span>
-<span class="cstat-no" title="statement not covered" >				{error ? &lt;Error /&gt; : null}</span>
-<span class="cstat-no" title="statement not covered" >				{loading ? &lt;Loading /&gt; : null}</span>
-<span class="cstat-no" title="statement not covered" >				{news.map(({ title, urlToImage, content, url, author, publishedAt }) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >					return (</span>
-<span class="cstat-no" title="statement not covered" >						&lt;div className="details"&gt;</span>
-<span class="cstat-no" title="statement not covered" >							&lt;h3 className="details__title"&gt;{title}&lt;/h3&gt;</span>
-<span class="cstat-no" title="statement not covered" >							&lt;img className="details__img" src={urlToImage} alt={title} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >							&lt;p className="details__content"&gt;{content}&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >							&lt;div className="details__description"&gt;</span>
-<span class="cstat-no" title="statement not covered" >								&lt;a</span>
-<span class="cstat-no" title="statement not covered" >									className="details__link"</span>
-<span class="cstat-no" title="statement not covered" >									href={url}</span>
-<span class="cstat-no" title="statement not covered" >									target="_blank"</span>
-<span class="cstat-no" title="statement not covered" >									rel="noreferrer"</span>
-<span class="cstat-no" title="statement not covered" >								&gt;</span>
-<span class="cstat-no" title="statement not covered" >									Go to the official news source</span>
-<span class="cstat-no" title="statement not covered" >								&lt;/a&gt;</span>
-<span class="cstat-no" title="statement not covered" >								&lt;div className="details__author-wrapp"&gt;</span>
-<span class="cstat-no" title="statement not covered" >									&lt;p className="details__author"&gt;Author: {author}&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >									&lt;p className="details__data-published"&gt;</span>
-<span class="cstat-no" title="statement not covered" >										Published: {publishedAt}</span>
-<span class="cstat-no" title="statement not covered" >									&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >								&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >							&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >						&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >					)</span>
-<span class="cstat-no" title="statement not covered" >				}</span>
-<span class="cstat-no" title="statement not covered" >				)}</span>
+<span class="cstat-no" title="statement not covered" >				{showError}</span>
+<span class="cstat-no" title="statement not covered" >				{showloading}</span>
+<span class="cstat-no" title="statement not covered" >				{content}</span>
 <span class="cstat-no" title="statement not covered" >			&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >		&lt;/&gt;</span>
+<span class="cstat-no" title="statement not covered" >	);</span>
+<span class="cstat-no" title="statement not covered" >};</span>
+&nbsp;
+const View = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >	const news = useSelector((state) =&gt; state.search.dataDetails);</span>
+<span class="cstat-no" title="statement not covered" >	return (</span>
+<span class="cstat-no" title="statement not covered" >		&lt;div className="details"&gt;</span>
+<span class="cstat-no" title="statement not covered" >			&lt;h3 className="details__title"&gt;{news.title}&lt;/h3&gt;</span>
+<span class="cstat-no" title="statement not covered" >			&lt;img className="details__img" src={news.urlToImage} alt={news.title} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >			&lt;p className="details__content"&gt;{news.content}&lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >			&lt;div className="details__description"&gt;</span>
+<span class="cstat-no" title="statement not covered" >				&lt;a</span>
+<span class="cstat-no" title="statement not covered" >					className="details__link"</span>
+<span class="cstat-no" title="statement not covered" >					href={news.url}</span>
+<span class="cstat-no" title="statement not covered" >					target="_blank"</span>
+<span class="cstat-no" title="statement not covered" >					rel="noreferrer"</span>
+<span class="cstat-no" title="statement not covered" >				&gt;</span>
+<span class="cstat-no" title="statement not covered" >					Go to the official news source</span>
+<span class="cstat-no" title="statement not covered" >				&lt;/a&gt;</span>
+<span class="cstat-no" title="statement not covered" >				&lt;div className="details__author-wrapp"&gt;</span>
+<span class="cstat-no" title="statement not covered" >					&lt;p className="details__author"&gt;Author: {news.author}&lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >					&lt;p className="details__data-published"&gt;</span>
+<span class="cstat-no" title="statement not covered" >						Published: {news.publishedAt}</span>
+<span class="cstat-no" title="statement not covered" >					&lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >				&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >			&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >			&lt;div className="details__back-home-wrapper"&gt;</span>
+<span class="cstat-no" title="statement not covered" >				&lt;Link className="details__back-home" exact to="/"&gt;</span>
+<span class="cstat-no" title="statement not covered" >					Back to Search</span>
+<span class="cstat-no" title="statement not covered" >				&lt;/Link&gt;</span>
+<span class="cstat-no" title="statement not covered" >			&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >		&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >	);</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
@@ -208,7 +262,7 @@ export default Details;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Aug 28 2021 19:36:57 GMT+0300 (Москва, стандартное время)
+                at Tue Aug 31 2021 21:56:57 GMT+0300 (Москва, стандартное время)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

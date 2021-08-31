@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">19.23% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/55</span>
+                <span class='fraction'>10/52</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">19.23% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/55</span>
+                <span class='fraction'>10/52</span>
             </div>
         
             
@@ -109,10 +109,7 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -120,9 +117,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -168,15 +162,13 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getNewsDetails } from '../../redux/actions';
 import Loading from '../loading/loading';
 import Error from '../error/error';
 import './news.scss';
 &nbsp;
 const News = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >	const dispatch = useDispatch();</span>
 <span class="cstat-no" title="statement not covered" >	const news = useSelector((state) =&gt; state.search.data);</span>
 <span class="cstat-no" title="statement not covered" >	const loading = useSelector((state) =&gt; state.search.loading);</span>
 <span class="cstat-no" title="statement not covered" >	const error = useSelector((state) =&gt; state.search.error);</span>
@@ -189,10 +181,10 @@ const News = <span class="fstat-no" title="function not covered" >() =&gt; {</sp
 <span class="cstat-no" title="statement not covered" >				&lt;ul className="news__list"&gt;</span>
 <span class="cstat-no" title="statement not covered" >					{news.map(</span>
 <span class="cstat-no" title="statement not covered" >						({ title, author, publishedAt, description, urlToImage }) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >							const id =</span>
-<span class="cstat-no" title="statement not covered" >								Math.floor(Date.now()) + Math.floor(Math.random() * 10);</span>
+<span class="cstat-no" title="statement not covered" >							const id = Math.floor(Date.now() / (Math.random() * 1000));</span>
 <span class="cstat-no" title="statement not covered" >							return (</span>
 <span class="cstat-no" title="statement not covered" >								&lt;li className="news__item" key={id}&gt;</span>
+<span class="cstat-no" title="statement not covered" >									&lt;p&gt;{id}&lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >									&lt;h3 className="news__title"&gt;{title}&lt;/h3&gt;</span>
 <span class="cstat-no" title="statement not covered" >									&lt;div className="news__img-descr-wrapp"&gt;</span>
 <span class="cstat-no" title="statement not covered" >										&lt;img className="news__img" src={urlToImage} alt={title} /&gt;</span>
@@ -205,8 +197,7 @@ const News = <span class="fstat-no" title="function not covered" >() =&gt; {</sp
 <span class="cstat-no" title="statement not covered" >										&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >										&lt;NavLink</span>
 <span class="cstat-no" title="statement not covered" >											className="news__more-link"</span>
-<span class="cstat-no" title="statement not covered" >											to={`/details/:${title}`}</span>
-<span class="cstat-no" title="statement not covered" >											onClick={() =&gt; dispatch(getNewsDetails(title))}</span>
+<span class="cstat-no" title="statement not covered" >											to={`/details/${title}`}</span>
 <span class="cstat-no" title="statement not covered" >										&gt;</span>
 <span class="cstat-no" title="statement not covered" >											more details</span>
 <span class="cstat-no" title="statement not covered" >										&lt;/NavLink&gt;</span>
@@ -229,7 +220,7 @@ export default News;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Aug 28 2021 19:36:57 GMT+0300 (Москва, стандартное время)
+                at Tue Aug 31 2021 21:56:57 GMT+0300 (Москва, стандартное время)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
