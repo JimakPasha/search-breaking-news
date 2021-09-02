@@ -16,9 +16,9 @@ const App = () => {
 					{formValues.map((item) => {
 						const id = Math.floor((Date.now() / Math.random()) * 100);
 						return (
-							<div>
+							<div key={id}>
 								<Modal>Thank you! Data saved successfully!</Modal>
-								<Card item={item} key={id} />
+								<Card item={item} />
 							</div>
 						);
 					})}
