@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchBar from '../searchBar/searchBar';
-import Cards from '../cards/cards';
+import SearchBar from '../components/searchBar/searchBar';
+import Cards from '../components/cards/cards';
 import './app.scss';
 import './reset.scss';
 import './global.scss';
