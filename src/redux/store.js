@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import search from './reducer';
+import reducer from './reducer';
 
 const store = configureStore({
-	reducer: { search },
+	reducer: { reducer },
 	devTools: process.env.NODE_ENV !== 'production',
 });
 

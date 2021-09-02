@@ -9,8 +9,8 @@ function PanelForm() {
 	const [pageSize, setPageSize] = useState('10');
 	const [page, setPage] = useState('1');
 
-	const loading = useSelector((state) => state.search.loading);
-	const pages = useSelector((state) => state.search.pages);
+	const loading = useSelector((state) => state.reducer.loading);
+	const pages = useSelector((state) => state.reducer.pages);
 	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
@@ -39,6 +39,7 @@ function PanelForm() {
 						<input
 							className="search-panel__input"
 							id="search-panel__input"
+							data-testid="search-input"
 							type="text"
 							value={searchValue}
 							onChange={(e) => setSearchValue(e.target.value)}

@@ -19,7 +19,7 @@ import './reset.scss';
 import './global.scss';
 
 const App = () => {
-	const loading = useSelector((state) => state.search.loading);
+	const loading = useSelector((state) => state.reducer.loading);
 	return (
 		<Router>
 			<div className={loading ? 'app__loading' : 'app'}>

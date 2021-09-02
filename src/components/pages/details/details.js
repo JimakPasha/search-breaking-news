@@ -9,8 +9,8 @@ import './details.scss';
 const Details = () => {
 	const dispatch = useDispatch();
 	const params = useParams();
-	const loading = useSelector((state) => state.search.loading);
-	const error = useSelector((state) => state.search.error);
+	const loading = useSelector((state) => state.reducer.loading);
+	const error = useSelector((state) => state.reducer.error);
 
 	useEffect(() => {
 		dispatch(getNewsDetails(params.title));
@@ -32,7 +32,7 @@ const Details = () => {
 };
 
 const View = () => {
-	const news = useSelector((state) => state.search.dataDetails);
+	const news = useSelector((state) => state.reducer.dataDetails);
 	return (
 		<div className="details">
 			<h3 className="details__title">{news.title}</h3>

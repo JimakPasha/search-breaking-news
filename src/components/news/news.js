@@ -6,9 +6,9 @@ import Error from '../error/error';
 import './news.scss';
 
 const News = () => {
-	const news = useSelector((state) => state.search.data);
-	const loading = useSelector((state) => state.search.loading);
-	const error = useSelector((state) => state.search.error);
+	const news = useSelector((state) => state.reducer.data);
+	const loading = useSelector((state) => state.reducer.loading);
+	const error = useSelector((state) => state.reducer.error);
 
 	return (
 		<>

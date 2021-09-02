@@ -7,7 +7,7 @@ import {
 	SEARCH_VALUE,
 } from './actions';
 
-const initialState = {
+export const initialState = {
 	data: [],
 	dataDetails: {},
 	loading: false,
@@ -16,7 +16,7 @@ const initialState = {
 	searchValue: '',
 };
 
-export default function search(state = initialState, action) {
+export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case RESET_STATE:
 			return { ...state, data: [], loading: false, error: false, pages: 0 };

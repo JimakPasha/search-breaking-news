@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.82% </span>
+                <span class="strong">36.76% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>40/68</span>
+                <span class='fraction'>25/68</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.82% </span>
+                <span class="strong">36.76% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>40/68</span>
+                <span class='fraction'>25/68</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -146,21 +146,21 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -213,22 +213,22 @@ import './app.scss';
 import './reset.scss';
 import './global.scss';
 &nbsp;
-const App = () =&gt; {
-	const loading = useSelector((state) =&gt; state.search.loading);
-	return (
-		&lt;Router&gt;
-			&lt;div className={loading<span class="branch-0 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" > ? 'app__loading' : '</span>app'}&gt;</span>
-				&lt;Header /&gt;
-				&lt;main className="main"&gt;
-					&lt;div className="container"&gt;
-						&lt;PagesAll /&gt;
-					&lt;/div&gt;
-				&lt;/main&gt;
-				{/* &lt;Footer /&gt; */}
-			&lt;/div&gt;
-		&lt;/Router&gt;
-	);
-};
+const App = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >	const loading = useSelector((state) =&gt; state.reducer.loading);</span>
+<span class="cstat-no" title="statement not covered" >	return (</span>
+<span class="cstat-no" title="statement not covered" >		&lt;Router&gt;</span>
+<span class="cstat-no" title="statement not covered" >			&lt;div className={loading ? 'app__loading' : 'app'}&gt;</span>
+<span class="cstat-no" title="statement not covered" >				&lt;Header /&gt;</span>
+<span class="cstat-no" title="statement not covered" >				&lt;main className="main"&gt;</span>
+<span class="cstat-no" title="statement not covered" >					&lt;div className="container"&gt;</span>
+<span class="cstat-no" title="statement not covered" >						&lt;PagesAll /&gt;</span>
+<span class="cstat-no" title="statement not covered" >					&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >				&lt;/main&gt;</span>
+<span class="cstat-no" title="statement not covered" >				{/* &lt;Footer /&gt; */}</span>
+<span class="cstat-no" title="statement not covered" >			&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >		&lt;/Router&gt;</span>
+<span class="cstat-no" title="statement not covered" >	);</span>
+<span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
 const PagesAll = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >	const location = useLocation();</span>
@@ -268,7 +268,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Aug 31 2021 21:56:57 GMT+0300 (Москва, стандартное время)
+                at Wed Sep 01 2021 20:51:58 GMT+0300 (Москва, стандартное время)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
