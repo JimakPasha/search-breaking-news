@@ -121,11 +121,19 @@
 			box-shadow: 0px 0px 3px 0px #fff;
 		}
 	}
-	&__select{
+	&__select {
 		cursor: pointer;
 	}
 	&__input {
 		margin-right: 5px;
+	}
+	&__input--empty {
+		border-color: #CA0000;
+		background-color: #e6d0d0;
+		&:focus {
+			border-color: #e1e4e9;
+			background-color: #fff;
+		}
 	}
 	&__label-pageAll {
 		margin-right: 40px;
