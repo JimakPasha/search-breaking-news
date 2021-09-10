@@ -1,0 +1,16 @@
+.footer {
+	display: flex;
+	justify-content: center;
+	background-color: #fff;
+	padding: 8px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	background: radial-gradient(circle, rgba(167,167,167,1) 0%, rgba(63,71,121,1) 66%);
+	box-shadow: 6px 4px 7px -1px rgba(34, 60, 80, 0.37);
+	color: #3F4779;
+	margin-top: 30px;
+	&__img {
+		width: 35px;
+		height: 35px;
+	}
+}
