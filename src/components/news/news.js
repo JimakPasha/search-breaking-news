@@ -21,7 +21,6 @@ const News = () => {
 							const id = Math.floor(Date.now() / (Math.random() * 1000));
 							return (
 								<li className="news__item" key={id}>
-									<p>{id}</p>
 									<h3 className="news__title">{title}</h3>
 									<div className="news__img-descr-wrapp">
 										<img className="news__img" src={urlToImage} alt={title} />

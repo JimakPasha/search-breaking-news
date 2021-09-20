@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './panelForm.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { getNews, inputSearch } from '../../redux/actions';
@@ -7,11 +7,17 @@ function PanelForm() {
 	const [searchValue, setSearchValue] = useState('');
 	const [sortBy, setSortBy] = useState('publishedAt');
 	const [pageSize, setPageSize] = useState('10');
-	const [page, setPage] = useState('1');
+	const [page, setPage] = useState(1);
 
 	const loading = useSelector((state) => state.search.loading);
 	const pages = useSelector((state) => state.search.pages);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (pages && page) {
+			dispatch(getNews(searchValue, sortBy, pageSize, page));
+		}
+	}, [sortBy, pageSize, page]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -21,7 +27,7 @@ function PanelForm() {
 
 	const handleChange = (e) => {
 		const { value } = e.target;
-		const regexp = /\d+/;
+		const regexp = /(?!0+$)\d+/;
 		const matchedValue = value.match(regexp);
 		if (matchedValue) {
 			const newValue = +matchedValue[0];
@@ -92,9 +98,12 @@ function PanelForm() {
 							<span className="page__descr">Pages all</span>
 							<div>
 								<input
-									className="page__input"
+									className={
+										page ? 'page__input' : 'page__input page__input--empty'
+									}
 									id="page__input"
-									type="text"
+									type="number"
+									min="1"
 									value={page}
 									onChange={handleChange}
 								/>
