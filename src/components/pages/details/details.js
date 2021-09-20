@@ -39,7 +39,9 @@ const Details = () => {
 
 	const showError = isError ? <Error /> : null;
 	const showloading = isLoading ? <Loading /> : null;
-	const content = !(isLoading || isError) ? <View news={news} /> : null;
+	const content = !(isLoading || isError || news === undefined) ? (
+		<View news={news} />
+	) : null;
 
 	return (
 		<div className="details">
