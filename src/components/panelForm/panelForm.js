@@ -152,7 +152,8 @@ function PanelForm({ setData, setLoading }) {
 										page ? 'page__input' : 'page__input page__input--empty'
 									}
 									id="page__input"
-									type="text"
+									type="number"
+									min="1"
 									value={page}
 									onChange={handleChange}
 								/>
