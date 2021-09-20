@@ -10,8 +10,8 @@ function PanelForm({ setData, setLoading }) {
 	const [searchValue, setSearchValue] = useState('');
 	const [sortBy, setSortBy] = useState('publishedAt');
 	const [pageSize, setPageSize] = useState('10');
-	const [pageAll, setPageAll] = useState('0');
-	const [page, setPage] = useState('1');
+	const [pageAll, setPageAll] = useState(0);
+	const [page, setPage] = useState(1);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
 
@@ -20,6 +20,28 @@ function PanelForm({ setData, setLoading }) {
 		setPage(page);
 		setLoading(isLoading);
 	}, [pageSize, page, isLoading, setLoading]);
+
+	useEffect(() => {
+		if (pageAll && page) {
+			setIsLoading(true);
+			setIsError(false);
+			const getData = async () => {
+				try {
+					const response = await axios.get(
+						`/everything?q=${searchValue}&sortBy=${sortBy}&apiKey=${API_KEY}&pageSize=${pageSize}&page=${page}`
+					);
+					setData(response.data.articles);
+					setPageAll(Math.ceil(response.data.totalResults / pageSize));
+				} catch {
+					setIsError(true);
+					setData([]);
+				} finally {
+					setIsLoading(false);
+				}
+			};
+			getData();
+		}
+	}, [sortBy, pageSize, page]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -41,7 +63,7 @@ function PanelForm({ setData, setLoading }) {
 
 	const handleChange = (e) => {
 		const { value } = e.target;
-		const regexp = /\d+/;
+		const regexp = /(?!0+$)\d+/;
 		const matchedValue = value.match(regexp);
 		if (matchedValue) {
 			const newValue = +matchedValue[0];
@@ -126,7 +148,9 @@ function PanelForm({ setData, setLoading }) {
 							<span className="page__descr">Pages all</span>
 							<div>
 								<input
-									className="page__input"
+									className={
+										page ? 'page__input' : 'page__input page__input--empty'
+									}
 									id="page__input"
 									type="text"
 									value={page}
