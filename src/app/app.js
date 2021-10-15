@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import Header from '../components/header/header';
 import Home from '../pages/home/home';
 import About from '../pages/about/about';
+import FormPage from '../pages/formPage/formPage';
 import Details from '../pages/details/details';
 import ErrorPage from '../pages/errorPage/errorPage';
 // import Footer from '../components/footer/footer';
@@ -48,6 +49,9 @@ const PagesAll = () => {
 						</Route>
 						<Route exact path="/about">
 							<About />
+						</Route>
+						<Route exact path="/form">
+							<FormPage />
 						</Route>
 						<Route path="/details/:title">
 							<Details />

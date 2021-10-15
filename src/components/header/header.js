@@ -18,6 +18,11 @@ const Header = () => {
 								about
 							</NavLink>
 						</li>
+						<li className="header__menu-item">
+							<NavLink activeClassName="header__link-active" to="/form">
+								form
+							</NavLink>
+						</li>
 					</ul>
 				</nav>
 			</div>
