@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { getNewsDetails } from '../../../redux/actions';
-import Loading from '../../loading/loading';
-import Error from '../../error/error';
+import { getNewsDetails } from '../../redux/actions';
+import Loading from '../../components/loading/loading';
+import Error from '../../components/error/error';
 import './details.scss';
 
 const Details = () => {

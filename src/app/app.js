@@ -8,12 +8,12 @@ import {
 } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useSelector } from 'react-redux';
-import Header from '../header/header';
+import Header from '../components/header/header';
 import Home from '../pages/home/home';
 import About from '../pages/about/about';
 import Details from '../pages/details/details';
 import ErrorPage from '../pages/errorPage/errorPage';
-// import Footer from '../footer/footer';
+// import Footer from '../components/footer/footer';
 import './app.scss';
 import './reset.scss';
 import './global.scss';
