@@ -14,6 +14,7 @@ const Footer = () => {
 				>
 					<img className="footer__img" src={github} alt="github" />
 				</a>
+				<p className="footer__year">2021</p>
 			</div>
 		</footer>
 	);

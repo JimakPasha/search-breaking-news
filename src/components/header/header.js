@@ -14,13 +14,13 @@ const Header = () => {
 							</NavLink>
 						</li>
 						<li className="header__menu-item">
-							<NavLink activeClassName="header__link-active" to="/about">
-								about
+							<NavLink activeClassName="header__link-active" to="/subscription">
+								Subscription
 							</NavLink>
 						</li>
 						<li className="header__menu-item">
-							<NavLink activeClassName="header__link-active" to="/form">
-								form
+							<NavLink activeClassName="header__link-active" to="/about">
+								About
 							</NavLink>
 						</li>
 					</ul>

@@ -14,7 +14,7 @@ import About from '../pages/about/about';
 import FormPage from '../pages/formPage/formPage';
 import Details from '../pages/details/details';
 import ErrorPage from '../pages/errorPage/errorPage';
-// import Footer from '../components/footer/footer';
+import Footer from '../components/footer/footer';
 import './app.scss';
 import './reset.scss';
 import './global.scss';
@@ -30,7 +30,7 @@ const App = () => {
 						<PagesAll />
 					</div>
 				</main>
-				{/* <Footer /> */}
+				{loading ? null : <Footer />}
 			</div>
 		</Router>
 	);
@@ -50,7 +50,7 @@ const PagesAll = () => {
 						<Route exact path="/about">
 							<About />
 						</Route>
-						<Route exact path="/form">
+						<Route exact path="/subscription">
 							<FormPage />
 						</Route>
 						<Route path="/details/:title">
