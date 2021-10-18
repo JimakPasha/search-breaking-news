@@ -1,0 +1,100 @@
+.loading {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, 90%);
+}
+@keyframes ldio-wp4s8cjsee {
+  0% { transform: rotate(0) }
+  100% { transform: rotate(360deg) }
+}
+.ldio-wp4s8cjsee div { box-sizing: border-box!important }
+.ldio-wp4s8cjsee > div {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  top: 16px;
+  left: 16px;
+  border-radius: 50%;
+  border: 8px solid #000;
+  border-color: #3e4575 transparent #3e4575 transparent;
+  animation: ldio-wp4s8cjsee 1s linear infinite;
+}
+
+.ldio-wp4s8cjsee > div:nth-child(2), .ldio-wp4s8cjsee > div:nth-child(4) {
+  width: 50px;
+  height: 50px;
+  top: 25px;
+  left: 25px;
+  animation: ldio-wp4s8cjsee 1s linear infinite reverse;
+}
+.ldio-wp4s8cjsee > div:nth-child(2) {
+  border-color: transparent #41424b transparent #41424b
+}
+.ldio-wp4s8cjsee > div:nth-child(3) { border-color: transparent }
+.ldio-wp4s8cjsee > div:nth-child(3) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+.ldio-wp4s8cjsee > div:nth-child(3) div:before, .ldio-wp4s8cjsee > div:nth-child(3) div:after { 
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: -8px;
+  left: 22px;
+  background: #3e4575;
+  border-radius: 50%;
+  box-shadow: 0 60px 0 0 #3e4575;
+}
+.ldio-wp4s8cjsee > div:nth-child(3) div:after {
+  left: -8px;
+  top: 22px;
+  box-shadow: 60px 0 0 0 #3e4575;
+}
+
+.ldio-wp4s8cjsee > div:nth-child(4) { border-color: transparent; }
+.ldio-wp4s8cjsee > div:nth-child(4) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+.ldio-wp4s8cjsee > div:nth-child(4) div:before, .ldio-wp4s8cjsee > div:nth-child(4) div:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: -8px;
+  left: 13px;
+  background: #41424b;
+  border-radius: 50%;
+  box-shadow: 0 42px 0 0 #41424b;
+}
+.ldio-wp4s8cjsee > div:nth-child(4) div:after {
+  left: -8px;
+  top: 13px;
+  box-shadow: 42px 0 0 0 #41424b;
+}
+.loadingio-spinner-double-ring-h7x50qahl7p {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  overflow: hidden;
+  background: #ffffff;
+	border-radius: 10px;
+	box-shadow: 6px 4px 7px -1px rgba(34, 60, 80, 0.37);
+}
+.ldio-wp4s8cjsee {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.7);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+.ldio-wp4s8cjsee div { box-sizing: content-box; }
