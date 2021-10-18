@@ -17,3 +17,5 @@ A form for news subscription has been implemented.
 - Prettier - Code formatter that removes all original styling and ensures that all outputted code conforms to a consistent style
 - React Router Dom 5 -  A collection of navigational components that compose declaratively with your application
 - React Transition Group 4 - Lower-level type of animation library
+- Git - Distributed version control system 
+- GitHub - Is a distributed version-control platform where users can collaborate on or adopt open source code projects, fork code, share ideas and more.
