@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Form from '../../components/form/form';
 import CardForm from '../../components/cardForm/cardForm';
 import ModalForm from '../../components/modalForm/modalForm';
@@ -6,6 +7,8 @@ import './formPage.scss';
 
 const FormPage = () => {
 	const [formValues, setFormValues] = useState([]);
+	const modal = useSelector((state) => state.modal);
+
 	return (
 		<div className="container">
 			<div className="form-page">
@@ -14,19 +17,19 @@ const FormPage = () => {
 				</h3>
 				<div className="form-page__wrapper">
 					<Form setFormValues={setFormValues} />
-					<div>
+					<ul>
 						{formValues.map((item) => {
 							const id = Math.floor((Date.now() / Math.random()) * 100);
 							return (
-								<div key={id}>
-									<ModalForm>
-										Successfully! You can fill out another form
-									</ModalForm>
+								<li key={id}>
 									<CardForm item={item} />
-								</div>
+								</li>
 							);
 						})}
-					</div>
+						{modal && (
+							<ModalForm>Successfully! You can fill out another form</ModalForm>
+						)}
+					</ul>
 				</div>
 			</div>
 		</div>

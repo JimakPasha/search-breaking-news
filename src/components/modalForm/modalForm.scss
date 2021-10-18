@@ -8,8 +8,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	opacity: 0;
-	pointer-events: none;
 	transition: all .3s;
 	&__content {
 		width: 50%;
@@ -51,13 +49,4 @@
 			transform: scale(0.97);
 		}
 	}
-}
-
-.modal.active {
-	opacity: 1;
-	pointer-events: all;
-}
-
-.ov {
-	overflow: hidden;
 }

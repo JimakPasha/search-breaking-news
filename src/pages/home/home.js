@@ -1,5 +1,5 @@
 import React from 'react';
-import PanelForm from '../../components/panelForm/panelForm';
+import PanelForm from '../../components/searchPanel/searchPanel';
 import News from '../../components/news/news';
 import './home.scss';
 

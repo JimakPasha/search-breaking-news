@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './panelForm.scss';
+import './searchPanel.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { getNews, inputSearch } from '../../redux/actions';
 

@@ -21,16 +21,28 @@ import './global.scss';
 
 const App = () => {
 	const loading = useSelector((state) => state.search.loading);
+	const modal = useSelector((state) => state.modal);
+
+	const setClassApp = () => {
+		if (loading) {
+			return ' load';
+		}
+		if (modal) {
+			return ' modal';
+		}
+		return '';
+	};
+
 	return (
 		<Router>
-			<div className={loading ? 'app__loading' : 'app'}>
+			<div className={`app${setClassApp()}`}>
 				<Header />
 				<main className="main">
 					<div className="container">
 						<PagesAll />
 					</div>
 				</main>
-				{loading ? null : <Footer />}
+				<Footer />
 			</div>
 		</Router>
 	);

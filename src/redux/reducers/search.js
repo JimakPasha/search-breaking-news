@@ -5,7 +5,7 @@ import {
 	FAIL_GETTING_NEWS,
 	RECEIVE_NEWS,
 	SEARCH_VALUE,
-} from './actions';
+} from '../actions';
 
 const initialState = {
 	data: [],

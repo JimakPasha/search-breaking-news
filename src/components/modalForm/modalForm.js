@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { closeModal } from '../../redux/actions';
 import './modalForm.scss';
 
 const ModalForm = ({ children }) => {
-	const [active, setActive] = useState(true);
+	const dispatch = useDispatch();
+	const ref = useRef();
+
+	useEffect(() => {
+		ref.current.focus();
+	}, []);
 
 	const handleClick = (e) => {
-		if (e.target.className === 'modal active') {
-			setActive(false);
+		if (e.target.className === 'modal') {
+			dispatch(closeModal());
 		}
 	};
 
 	const handleKeyDown = (e) => {
 		if (e.keyCode === 27 || e.keyCode === 13) {
-			setActive(false);
+			dispatch(closeModal());
 		}
 	};
 
 	return (
 		<div
-			className={active ? 'modal active' : 'modal'}
+			className="modal"
 			onClick={handleClick}
 			onKeyDown={handleKeyDown}
 			role="button"
@@ -29,7 +36,8 @@ const ModalForm = ({ children }) => {
 				<button
 					className="modal__button"
 					type="button"
-					onClick={() => setActive(false)}
+					onClick={() => dispatch(closeModal())}
+					ref={ref}
 				>
 					Ok
 				</button>

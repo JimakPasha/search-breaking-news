@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../redux/actions';
 import './form.scss';
 
 const Form = ({ setFormValues }) => {
@@ -19,6 +21,7 @@ const Form = ({ setFormValues }) => {
 	const [checkAgree, setCheckAgree] = useState(false);
 	const [radioNotice, setRadioNotice] = useState('Receive');
 	const [errors, setErrors] = useState({});
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		setErrors({});
@@ -65,6 +68,7 @@ const Form = ({ setFormValues }) => {
 				},
 			]);
 			reset();
+			dispatch(openModal());
 		}
 	};
 

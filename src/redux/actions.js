@@ -7,6 +7,8 @@ export const RECEIVE_NEWS_DETAILS = 'RECEIVE_NEWS_DETAILS';
 export const FAIL_GETTING_NEWS = 'FAIL_GETTING_NEWS';
 export const SEARCH_VALUE = 'SEARCH_VALUE';
 export const TITLE_DETAILS = 'TITLE_DETAILS';
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
 
 export function reset() {
 	return { type: RESET_STATE };
@@ -73,4 +75,12 @@ export function getNewsDetails(titleDetails) {
 				() => dispatch(failGettingNews())
 			);
 	};
+}
+
+export function openModal() {
+	return { type: OPEN_MODAL };
+}
+
+export function closeModal() {
+	return { type: CLOSE_MODAL };
 }
