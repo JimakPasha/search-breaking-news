@@ -1,10 +1,18 @@
-#  [Search Breaking News](https://jimakpasha.github.io/search-breaking-news "go to app")
+# Search Breaking News
 
-*Deploy: https://jimakpasha.github.io/search-breaking-news*<br/>
 *Author: https://github.com/JimakPasha*
 
 In this application, you can search and read news, sort them by publication date, popularity and relevance. You can view short versions of news and read them in more detail. It is possible to pagination and display a certain amount of news on the page.
 A form for news subscription has been implemented.
+
+## Peculiarities API
+
+Unfortunately, the api works only on localhost, so to view the application please take the following steps:
+1) `git clone https://github.com/JimakPasha/search-breaking-news.git`
+2) `npm install`
+3) `npm run start`
+- build project production `npm run dev`
+- build project dev `npm run build`
 
 ## Technical implementation
 
