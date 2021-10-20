@@ -15,6 +15,9 @@ const About = () => {
 				</h4>
 				<ul className="about__peculiarities-list">
 					<li className="about__peculiarities-item">
+						- Works only on localhost -
+					</li>
+					<li className="about__peculiarities-item">
 						- Returns only the first 100 news -
 					</li>
 					<li className="about__peculiarities-item">

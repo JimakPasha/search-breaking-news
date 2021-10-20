@@ -13,20 +13,20 @@ const isProd = !isDev;
 const optimization = () => {
 	const config = {
 		splitChunks: {
-			chunks: 'all'
-		}
-	}
+			chunks: 'all',
+		},
+	};
 
 	if (isProd) {
 		config.minimizer = [
 			new OptimizeCssAssetWebpackPlugin(),
-			new TerserWebpackPlugin()
-		]
+			new TerserWebpackPlugin(),
+		];
 	}
 	return config;
-}
+};
 
-const filename = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`;
+const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
@@ -51,32 +51,32 @@ module.exports = {
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
-				}
+				},
 			},
 			{
 				test: /\.css$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader']
+				use: [MiniCssExtractPlugin.loader, 'css-loader'],
 			},
 			{
 				test: /\.s[ac]ss$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
 			},
 			{
 				test: /\.(png|jpg|svg|gif)$/,
-				use: ['file-loader']
+				use: ['file-loader'],
 			},
 			{
 				test: /\.(ttd|woff|woff2|eot)$/,
-				use: ['file-loader']
-			}
-		]
+				use: ['file-loader'],
+			},
+		],
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './index.html',
 			minify: {
-				collapseWhitespace: isProd
-			}
+				collapseWhitespace: isProd,
+			},
 		}),
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
 		new CopyWebpackPlugin({
@@ -89,10 +89,10 @@ module.exports = {
 			],
 		}),
 		new MiniCssExtractPlugin({
-			filename: filename('css')
+			filename: filename('css'),
 		}),
 		new ESLintPlugin({
-			extensions: ['js']
+			extensions: ['js'],
 		}),
-	]
-}
+	],
+};
